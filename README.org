@@ -1,0 +1,28 @@
+* My emacs settings
+  
+** Requirements
+   - Emacs 24
+   - Cask
+
+** Installation
+   #+BEGIN_SRC sh
+     git clone git@github.com/rkworks/.emacs.d.git
+     cd .emacs.d
+     curl -fsSkL https://raw.github.com/cask/cask/master/go | python
+     cask install
+   #+END_SRC
+   
+** Running
+   If you want to keep your =.emacs.d= and try my settings, run the following command:
+   
+   #+BEGIN_SRC sh
+     emacs -q -l /path/to/my-dot-emacs-d/init.el
+   #+END_SRC
+
+   You can also run GUI client.
+   
+   #+BEGIN_SRC sh
+     # Mac
+     open /path/to/Emacs.app -n --args -Q -l /path/to/my-dot-emacs-d/init.el
+   #+END_SRC
+   
