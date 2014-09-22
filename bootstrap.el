@@ -6,7 +6,7 @@
 
 ;; Cask
 (let* ((brewed-suffix "echo $(brew --prefix)/share/emacs/site-lisp/cask.el")
-       (brewed-path (and (executable-find "brew")
+       (brewed-path (and (executable-find "/usr/local/bin/brew") ; FIXME: Should use more flexible way to find brew's path
                          (replace-regexp-in-string (rx (* (any " \t\n")) eos)
                                                    ""
                                                    (shell-command-to-string brewed-suffix))))
@@ -26,7 +26,7 @@
 (setq exec-path-from-shell-variables '("PATH" "MANPATH" "GOPATH"))
 (exec-path-from-shell-initialize)
 
-;; Add external projects to load path
+;; Add external projects to the load path
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 (defun update-load-path ()
   (interactive)
@@ -34,5 +34,13 @@
    (when (file-directory-p project)
      (add-to-list 'load-path project))))
 (update-load-path)
+
+;; Add the features directory to the load path
+(add-to-list 'load-path (expand-file-name "features" user-emacs-directory))
+
+;; Define constants
+(defconst is-mac (eq system-type 'darwin))
+
+(require 'use-package)
 
 ;;; bootstrap.el ends here

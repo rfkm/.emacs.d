@@ -16,13 +16,13 @@
    If you want to keep your =.emacs.d= and try my settings, run the following command:
    
    #+BEGIN_SRC sh
-     emacs -q -l /path/to/my-dot-emacs-d/init.el
+     emacs -q -l /path/to/my-dot-emacs-d/init.el --eval "(run-hooks 'after-init-hook)"
    #+END_SRC
 
-   You can also run GUI client.
+   You can also run GUI client:
    
    #+BEGIN_SRC sh
      # Mac
-     open /path/to/Emacs.app -n --args -Q -l /path/to/my-dot-emacs-d/init.el
+     open /path/to/Emacs.app -n --args -Q -l /path/to/my-dot-emacs-d/init.el --eval "(run-hooks 'after-init-hook)"
    #+END_SRC
    

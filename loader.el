@@ -9,17 +9,16 @@
 (defun my/module-selector (modules)
   "Sort and filter given MODULES according to `my/modules'."
   (delq nil
-        (mapcar (lambda (a)
-                  (let ((elc (concat a ".elc"))
-                        (el (concat a ".el")))
+        (mapcar (lambda (module)
+                  (let ((elc (concat module ".elc"))
+                        (el (concat module ".el")))
                     (cond ((member elc modules) elc)
                           ((member el modules) el)
-                          ((member a modules) a)
+                          ((member module modules) module)
                           (t
-                           (warn "Unknown module: %s" a)
+                           (warn "Unknown module: %s" module)
                            nil))))
                 (delq nil my/modules))))
-
 
 (defun my/load-modules ()
   "Load modules."
@@ -27,23 +26,25 @@
                 init-loader-byte-compile t
                 init-loader-default-regexp "\\`\\(?:setup-\\|utils-\\|custom.el\\)"
                 init-loader-sort-function 'my/module-selector)
-         
-  (init-loader-load my/modules-dir))
+    (init-loader-load my/modules-dir))
 
-
-;; (require 'helm-files)
+;; Define helm source
+(require 'helm-files)
 (defvar my/helm-source-emacs-modules
   `((name . "EmacsModules")
     (candidates . (lambda ()
                     (with-helm-current-buffer
                       (let ((dirs (append (directory-files user-emacs-directory t)
                                           (directory-files my/modules-dir t)))
-                            (filter (lambda (d) (string-match "^.*\.el$" d))))
-                        (remove-if-not filter dirs)))))
+                            (pred (lambda (d) (string-match "^\\(?:.*\.el\\|.*[^\.]Cask\\)$" d))))
+                        (-filter pred dirs)))))
     (type . file)))
+
 (defun my/helm-list-emacs-modules ()
   (interactive)
   (helm-other-buffer 'my/helm-source-emacs-modules "*helm-emacs-modules*"))
-(global-set-key (kbd "C-x r .") 'my/helm-list-emacs-modules)
 
+(bind-key "C-x r ." 'my/helm-list-emacs-modules)
+
+(provide 'loader)
 ;;; loader.el ends here
