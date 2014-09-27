@@ -29,7 +29,7 @@
 (setq buffer-file-coding-system 'utf-8-unix)
 
 ;; Performance
-(setq gc-cons-threshold (* 100 gc-cons-threshold))
+(setq gc-cons-threshold 20000000)
 (setq jit-lock-stealth-time 16
       jit-lock-defer-contextually t
       jit-lock-stealth-nice 0.5)
@@ -162,57 +162,61 @@
 (setq uniquify-buffer-name-style 'forward)
 (setq uniquify-ignore-buffers-re "*[^*]+*")
 
+;; anzu
+(use-package anzu
+  :idle (global-anzu-mode 1))
+
 ;; Flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; open-junk-file
 (use-package open-junk-file
-             :bind ("C-c M-j" . open-junk-file))
+  :bind ("C-c M-j" . open-junk-file))
 
 ;; shell-pop
 (use-package shell-pop
-             :bind ("C-x C-z" . shell-pop))
+  :bind ("C-x C-z" . shell-pop))
 
 ;; expand-region
 (use-package expand-region
-             :bind ("C-@" . er/expand-region))
+  :bind ("C-@" . er/expand-region))
 
 ;; multiple-cursors
 (use-package multiple-cursors
-             :bind (("C-<" . mc/mark-previous-like-this)
-                    ("C->" . mc/mark-next-like-this)
-                    ("C-*" . mc/mark-all-like-this)))
+  :bind (("C-<" . mc/mark-previous-like-this)
+         ("C->" . mc/mark-next-like-this)
+         ("C-*" . mc/mark-all-like-this)))
 
 ;; jump-char
 (use-package jump-char
-             :bind (("C-f" . jump-char-forward)
-                    ("M-f" . jump-char-backward)))
+  :bind (("C-f" . jump-char-forward)
+         ("M-f" . jump-char-backward)))
 
 ;; undo-tree
 (use-package undo-tree
-	     :bind ("C-M-/" . undo-tree-redo)
-	     :idle (progn
-		     (setq-default undo-tree-mode-lighter nil)
-		     (setq undo-limit 600000)
-		     (setq undo-strong-limit 900000)
-		     (global-undo-tree-mode 1)))
+  :bind ("C-M-/" . undo-tree-redo)
+  :idle (progn
+          (setq-default undo-tree-mode-lighter nil)
+          (setq undo-limit 600000)
+          (setq undo-strong-limit 900000)
+          (global-undo-tree-mode 1)))
 
 ;; (use-package smooth-scrolling)
 
 ;; popwin
 (use-package popwin
-	     :init (progn
-		     (popwin-mode 1)))
+  :init (progn
+          (popwin-mode 1)))
 
 ;; projectile
 (use-package projectile
-	     :bind ("C-c p s" . projectile-switch-project)
-	     :init (progn
-		     (setq projectile-completion-system 'default)
-		     (projectile-global-mode 1)))
+  :bind ("C-c p p" . projectile-switch-project)
+  :init (progn
+          (setq projectile-completion-system 'ido)
+          (projectile-global-mode 1)))
 
 (use-package helm-projectile
-	     :bind ("C-x g" . helm-projectile))
+  :bind ("C-x g" . helm-projectile))
 
 (provide 'setup-basic)
 ;;; setup-basic.el ends here

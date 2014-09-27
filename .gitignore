@@ -1,4 +1,8 @@
 *~
 *.elc
+\#*\#
 .cask
 .DS_Store
+recentf
+projectile-bookmarks.eld
+ac-comphist.dat

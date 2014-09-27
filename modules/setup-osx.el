@@ -9,19 +9,29 @@
 (setq ns-right-command-modifier (quote hyper))
 (setq ns-alternate-modifier (quote super))
 (setq ns-right-alternate-modifier (quote alt))
-(setq ns-use-native-fullscreen nil)
+
+(setq ns-use-srgb-colorspace nil)
 
 ;; Don't open new frame 
 (setq ns-pop-up-frames nil)
 
-;; Fullscreen
-(bind-key "M-<f10>" (if (fboundp 'toggle-frame-fullscreen)
-                      'toggle-frame-fullscreen
-                    'ns-toggle-fullscreen))
+;; Don't use native fullscreen
+(setq ns-use-native-fullscreen nil)
 
-;; Please use GNU's ls 
-;; (when (executable-find "gls")
-;;    (setq insert-directory-program "gls"))
+;; I don't know why but, if you call fullscreen function immediately,
+;; `ns-use-native-fullscreen' may be ignored.
+(run-at-time "1 sec" nil (lambda ()
+                           (--when-let (-first #'fboundp '(toggle-frame-fullscreen
+                                                           ns-toggle-fullscreen))
+                             (funcall it))))
+
+(bind-key "M-<f10>" (if (fboundp 'toggle-frame-fullscreen)
+                        'toggle-frame-fullscreen
+                      'ns-toggle-fullscreen))
+
+;; Use GNU's ls
+(when (executable-find "gls")
+  (setq insert-directory-program "gls"))
 
 ;; Use trash can
 (setq delete-by-moving-to-trash t
@@ -45,7 +55,7 @@
 
 ;; Enable clipboard on CUI Emacs
 (unless window-system
-  (defvar prev-yanked-text nil "*previous yanked text")
+  (defvar my/prev-yanked-text nil "*previous yanked text")
   (setq interprogram-cut-function
         (lambda (text &optional push)
           (let ((process-connection-type nil))
@@ -57,8 +67,8 @@
   (setq interprogram-paste-function
         (lambda ()
           (let ((text (shell-command-to-string "pbpaste")))
-            (if (string= prev-yanked-text text)
+            (if (string= my/prev-yanked-text text)
                 nil
-              (setq prev-yanked-text text))))))
+              (setq my/prev-yanked-text text))))))
 
 ;;; setup-mac.el ends here

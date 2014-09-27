@@ -53,3 +53,16 @@
 (depends-on "undo-tree")
 (depends-on "popwin")
 
+(depends-on "color-theme-sanityinc-tomorrow")
+(depends-on "monokai-theme")
+(depends-on "zenburn-theme")
+(depends-on "solarized-theme")
+(depends-on "gruvbox-theme")
+(depends-on "spacegray-theme")
+
+(depends-on "powerline")
+
+(depends-on "anzu")
+(depends-on "ggtags")
+
+(depends-on "php-mode")

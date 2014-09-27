@@ -8,22 +8,22 @@
 
 ;; paredit
 (use-package paredit
-             :config (progn
-                       (bind-keys :map paredit-mode-map
-                                  ("C-k"   . next-line)
-                                  ("C-d"   . paredit-kill)
-                                  ("C-o"   . paredit-forward-delete)
-                                  ("C-M-o" . paredit-forward-kill-word)
-                                  ("C-u"   . paredit-backward-delete)
-                                  ("C-M-u" . paredit-backward-kill-word)
-                                  ("C-j"   . backward-char)
-                                  ("C-M-u" . backward-kill-word))
+  :config (progn
+            (bind-keys :map paredit-mode-map
+                       ("C-k"   . next-line)
+                       ("C-d"   . paredit-kill)
+                       ("C-o"   . paredit-forward-delete)
+                       ("C-M-o" . paredit-forward-kill-word)
+                       ("C-u"   . paredit-backward-delete)
+                       ("C-M-u" . paredit-backward-kill-word)
+                       ("C-j"   . backward-char)
+                       ("C-M-u" . backward-kill-word))
 
-                       ;; Enable `paredit-mode' in the minibuffer, during `eval-expression'.
-                       (defun conditionally-enable-paredit-mode ()
-                         (if (eq this-command 'eval-expression)
-                             (paredit-mode 1)))
-                       (add-hook 'minibuffer-setup-hook 'conditionally-enable-paredit-mode)))
+            ;; Enable `paredit-mode' in the minibuffer, during `eval-expression'.
+            (defun conditionally-enable-paredit-mode ()
+              (if (eq this-command 'eval-expression)
+                  (paredit-mode 1)))
+            (add-hook 'minibuffer-setup-hook 'conditionally-enable-paredit-mode)))
 
 ;; el-doc
 (setq eldoc-idle-delay 0.2)
@@ -50,31 +50,31 @@
 
 ;; clojure
 (use-package clojure-mode
-             :defer t
-             :config 
-             (progn 
-               (use-package clojure-mode-extra-font-locking)
-               (use-package midje-mode
-                            :init
-                            (add-hook 'clojure-mode-hook 'midje-mode))
-               (use-package clj-refactor
-                            :config
-                            (add-hook 'clojure-mode-hook (lambda ()
-                                                           (clj-refactor-mode 1))))
-               (use-package ac-cider
-                            :init
-                            (progn
-                              (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
-                              (add-hook 'cider-mode-hook 'ac-cider-setup)
-                              (add-hook 'cider-repl-mode-hook 'ac-cider-setup)
-                              (eval-after-load "auto-complete"
-                                '(add-to-list 'ac-modes 'cider-mode))))
-               ))
+  :defer t
+  :config 
+  (progn 
+    (use-package clojure-mode-extra-font-locking)
+    (use-package midje-mode
+      :init
+      (add-hook 'clojure-mode-hook 'midje-mode))
+    (use-package clj-refactor
+      :config
+      (add-hook 'clojure-mode-hook (lambda ()
+                                     (clj-refactor-mode 1))))
+    (use-package ac-cider
+      :init
+      (progn
+        (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+        (add-hook 'cider-mode-hook 'ac-cider-setup)
+        (add-hook 'cider-repl-mode-hook 'ac-cider-setup)
+        (eval-after-load "auto-complete"
+          '(add-to-list 'ac-modes 'cider-mode))))
+    ))
 
 (use-package ace-jump-mode
-             :bind ("C-." . ace-jump-mode)
-             :config
-             (message "Yay, ace-jump-mode was actually loaded!"))
+  :bind ("C-." . ace-jump-mode)
+  :config
+  (message "Yay, ace-jump-mode was actually loaded!"))
 
 ;; clojure-mode
 ;; (bundle! clojure-mode

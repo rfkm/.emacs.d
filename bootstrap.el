@@ -1,5 +1,7 @@
 ;;; bootstrap.el
 
+(eval-when-compile (require 'cl))
+
 (when load-file-name
   (setq user-emacs-directory (expand-file-name
                               (file-name-directory load-file-name))))
