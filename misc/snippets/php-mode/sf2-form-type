@@ -4,7 +4,7 @@
 # --
 <?php
 
-namespace `(my/guess-namespace)`;
+namespace `(my/guess-php-namespace)`;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
