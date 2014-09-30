@@ -42,7 +42,7 @@
                   "setup-web-mode"
                   "setup-yaml-mode"
                   ;; "setup-go"
-                  ;; "setup-coffee-mode"
+                  "setup-coffee-mode"
                   ;; "setup-scala-mode"
                   "setup-org-mode"
                   ;; "setup-android-mode"

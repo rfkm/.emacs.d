@@ -67,6 +67,7 @@
 (depends-on "php-mode")
 (depends-on "yaml-mode")
 (depends-on "scss-mode")
+(depends-on "coffee-mode")
 
 (depends-on "org-plus-contrib")
 
