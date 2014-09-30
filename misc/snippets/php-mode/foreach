@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: foreach
+# key: fore
+# --
+foreach(\$${1:results} as \$${2:key} => \$${3:val}){
+$>$0
+}

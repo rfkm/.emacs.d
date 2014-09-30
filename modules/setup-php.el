@@ -18,12 +18,11 @@
 
 (use-package php-mode
   :defer t
-  :init (progn
+  :config (progn
           (setq php-template-compatibility nil)
           (setq php-mode-coding-style 'symfony2)
           (bind-keys :map php-mode-map
                      ("C-d" . kill-whole-line))
-
           (defun my/php-mode-hook ()
             ;; gtags
             (ggtags-mode 1)
@@ -37,20 +36,8 @@
                                ac-source-gtags
                                ac-source-filename
                                ))
-            (auto-complete-mode 1)
-            ;; reduce font lock keywords
-            (make-local-variable 'font-lock-keywords)
-            (setq font-lock-keywords php-font-lock-keywords-2)
-            
-            (setq tab-width 4
-                  c-basic-offset 4
-                  c-hanging-comment-ender-p nil
-                  indent-tabs-mode nil)
-            )
-          (add-hook 'php-mode-hook 'my/php-mode-hook)
-
-          )
-  :config (message "foo"))
+            (auto-complete-mode 1))
+          (add-hook 'php-mode-hook 'my/php-mode-hook)))
 
 
 '(eval-after-load-compile 'php-mode

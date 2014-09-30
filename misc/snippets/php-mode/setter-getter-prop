@@ -1,0 +1,23 @@
+# -*- mode: snippet -*-
+# name: setter-getter-prop
+# key: sgp
+# expand-env: ((yas/indent-line 'fixed))
+# --
+/**
+ * @var ${1:string}
+ */
+private $${2:email};
+ 
+/**
+ * @param $1 $$2
+ */
+public function set${2:$(upcase-initials yas-text)}($$2) {
+    $this->$2 = $$2;$>
+}
+ 
+/**
+ * @return $1
+ */
+public function get${2:$(upcase-initials yas-text)}() {
+    return $this->$2;$>
+}

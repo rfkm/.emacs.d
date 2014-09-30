@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: sf2-action
+# key: act
+# expand-env: ((yas/indent-line 'fixed))
+# --
+/**
+ * ${1:register}Action
+ *
+ * @Route("/${1:$(s-dashed-words yas-text)}"${2:, name="my_root_name"})
+ * @Template
+ */
+public function $1Action(Request $request)
+{
+$0$>
+}

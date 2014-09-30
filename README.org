@@ -8,7 +8,7 @@
    #+BEGIN_SRC sh
      git clone git@github.com/rkworks/.emacs.d.git
      cd .emacs.d
-     curl -fsSkL https://raw.github.com/cask/cask/master/go | python
+     curl -fsSkL https://raw.github.com/cask/cask/master/go | python # or 'brew install cask' if you use Homebrew
      cask install
    #+END_SRC
    
@@ -16,13 +16,11 @@
    If you want to keep your =.emacs.d= and try my settings, run the following command:
    
    #+BEGIN_SRC sh
-     emacs -q -l /path/to/my-dot-emacs-d/init.el --eval "(run-hooks 'after-init-hook)"
+     emacs -q -l /path/to/.emacs.d/init.el --eval "(run-hooks 'after-init-hook)"
    #+END_SRC
 
-   You can also run GUI client:
+   If you use OS X and want to launch GUI client, run the following command:
    
    #+BEGIN_SRC sh
-     # Mac
-     open /path/to/Emacs.app -n --args -Q -l /path/to/my-dot-emacs-d/init.el --eval "(run-hooks 'after-init-hook)"
+     open /path/to/Emacs.app -n --args -Q -l /path/to/.emacs.d/init.el --eval "(run-hooks 'after-init-hook)"
    #+END_SRC
-   

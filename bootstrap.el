@@ -37,12 +37,10 @@
      (add-to-list 'load-path project))))
 (update-load-path)
 
-;; Add the features directory to the load path
-(add-to-list 'load-path (expand-file-name "features" user-emacs-directory))
-
 ;; Define constants
-(defconst is-mac (eq system-type 'darwin))
+(defconst mac? (eq system-type 'darwin))
 
+;; Use `use-package' globally
 (require 'use-package)
 
 ;;; bootstrap.el ends here

@@ -11,18 +11,15 @@
   :init (progn (setq show-paren-style 'mixed)
                (show-paren-mode 1)))
 
-(use-package hl-line
-  :init (global-hl-line-mode 1))
+;; (use-package hl-line
+;;   :init (global-hl-line-mode 1))
 
 ;; (blink-cursor-mode -1)
-
-
 
 ;; Display time mode
 (setq display-time-string-forms '((format
                                    "%s/%s(%s) %s:%s" month day dayname 24-hours minutes)))
 (display-time-mode t)
-
 
 (when window-system
   ;; Theme
@@ -54,21 +51,22 @@
       (message (number-to-string new-alpha))
       (set-frame-parameter nil 'alpha new-alpha)))
 
-  (defun my/inc-alpha ()
+  (defun my/inc-frame-alpha ()
     (interactive)
     (my/change-frame-alpha +2))
 
-  (defun my/dec-alpha ()
+  (defun my/dec-frame-alpha ()
     (interactive)
     (my/change-frame-alpha -2))
 
   (bind-keys
-   ("s-<up>" . my/inc-alpha)
-   ("s-<down>" . my/dec-alpha)))
+   ("s-<up>" . my/inc-frame-alpha)
+   ("s-<down>" . my/dec-frame-alpha)))
 
 ;; CLI
 (unless window-system
   (progn
-    (load-theme 'solarized-dark)))
+    ;; (load-theme 'solarized-dark)
+    ))
 
 ;;; setup-ui.el ends here

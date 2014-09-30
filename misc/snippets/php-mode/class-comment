@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: class-comment
+# key: cc
+# expand-env: ((yas/indent-line 'fixed))
+# --
+/**
+ * $0
+ *
+ * @author `(s-trim (shell-command-to-string "git config --get user.name"))` <`(s-trim (shell-command-to-string "git config --get user.email"))`>
+ */

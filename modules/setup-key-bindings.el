@@ -56,6 +56,13 @@
  :map isearch-mode-map
  ("C-u" . isearch-delete-char))
 
-
+;; minibuffer
+(dolist (map (list minibuffer-local-map
+                   minibuffer-local-ns-map
+                   minibuffer-local-completion-map
+                   minibuffer-local-must-match-map
+                   minibuffer-local-shell-command-map
+                   minibuffer-local-filename-completion-map))
+  (bind-key "C-j" 'backward-char map))
 
 ;;; setup-key-bindings.el ends here

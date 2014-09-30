@@ -1,5 +1,6 @@
 (source gnu)
 (source melpa)
+(source org)
 
 (depends-on "bind-key")
 (depends-on "cask")
@@ -24,16 +25,19 @@
 (depends-on "helm-projectile")
 (depends-on "s")
 (depends-on "smartparens")
+(depends-on "smooth-scrolling")
 (depends-on "use-package")
 (depends-on "web-mode")
 (depends-on "yasnippet")
 (depends-on "init-loader" :git "https://github.com/rkworks/init-loader.git")
 (depends-on "helm")
 (depends-on "helm-descbinds")
+(depends-on "helm-c-yasnippet")
 (depends-on "shell-pop")
 (depends-on "open-junk-file")
 (depends-on "ag")
 (depends-on "wgrep-ag")
+(depends-on "helm-ag")
 (depends-on "jump-char")
 (depends-on "expand-region")
 (depends-on "multiple-cursors")
@@ -44,6 +48,8 @@
 (depends-on "midje-mode")
 (depends-on "auto-complete")
 (depends-on "ace-jump-mode")
+(depends-on "migemo")
+(depends-on "quickrun")
 
 (depends-on "clojure-mode")
 (depends-on "clojure-mode-extra-font-locking")
@@ -53,16 +59,19 @@
 (depends-on "undo-tree")
 (depends-on "popwin")
 
-(depends-on "color-theme-sanityinc-tomorrow")
-(depends-on "monokai-theme")
-(depends-on "zenburn-theme")
-(depends-on "solarized-theme")
-(depends-on "gruvbox-theme")
-(depends-on "spacegray-theme")
-
 (depends-on "powerline")
 
 (depends-on "anzu")
 (depends-on "ggtags")
 
 (depends-on "php-mode")
+
+(depends-on "org-plus-contrib")
+
+;; Themes
+(depends-on "color-theme-sanityinc-tomorrow")
+(depends-on "monokai-theme")
+(depends-on "zenburn-theme")
+(depends-on "solarized-theme")
+(depends-on "gruvbox-theme")
+(depends-on "spacegray-theme")

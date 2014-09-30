@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: setter-getter
+# key: sg
+# expand-env: ((yas/indent-line 'fixed))
+# --
+/**
+ * @param ${1:string} $${2:email}$0
+ * @return self
+ */
+public function set${2:$(upcase-initials yas-text)}($$2) {
+    $this->$2 = $$2;$>
+    
+    return $this;
+}
+ 
+/**
+ * @return $1
+ */
+public function get${2:$(upcase-initials yas-text)}() {
+    return $this->$2;$>
+}

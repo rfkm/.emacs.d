@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: class
+# key: cl
+# expand-env: ((yas/indent-line 'fixed))
+# --
+/**
+ * $1
+ *
+ * @author Ryo Fukumuro <rkworks@o0o.co>
+ */
+$2class $1 extends ${3:Controller}
+{
+  $0$>
+}

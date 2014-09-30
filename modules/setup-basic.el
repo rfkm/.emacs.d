@@ -1,4 +1,4 @@
-;;; basic.el --- basic settings.
+;;; setup-basic.el --- basic settings.
 
 ;;; Commentary:
 
@@ -16,7 +16,8 @@
 (setq vc-make-backup-files t)
 
 ;; Default major mode
-(setq default-major-mode 'text-mode)
+(setq major-mode 'text-mode)
+(setq initial-scratch-message ";; foooo")
 
 ;; No splash screen
 (setq inhibit-startup-message t)
@@ -67,9 +68,6 @@
 
 ;; Show keystrokes in progress
 (setq echo-keystrokes 0.1)
-
-;; Real emacs knights don't use shift to mark things
-;; (setq shift-select-mode nil)
 
 ;; Transparently open compressed files
 (auto-compression-mode 1)
@@ -137,6 +135,9 @@
   (server-start))
 
 
+;; spell checking
+(setq-default ispell-program-name "aspell")
+
 ;; smart pairing for all
 (electric-pair-mode 1)
 
@@ -201,8 +202,6 @@
           (setq undo-strong-limit 900000)
           (global-undo-tree-mode 1)))
 
-;; (use-package smooth-scrolling)
-
 ;; popwin
 (use-package popwin
   :init (progn
@@ -217,6 +216,19 @@
 
 (use-package helm-projectile
   :bind ("C-x g" . helm-projectile))
+
+;; helm-ag
+(use-package helm-ag
+  :init (progn
+          (defun my/projectile-helm-ag ()
+            (interactive)
+            (helm-ag (projectile-project-root)))
+          (bind-key "C-x G" 'my/projectile-helm-ag)))
+
+;; quickrun -- Execute editing buffer
+(use-package quickrun
+  :bind (("s-q" . quickrun)
+         ("s-Q" . quickrun-shell)))
 
 (provide 'setup-basic)
 ;;; setup-basic.el ends here
