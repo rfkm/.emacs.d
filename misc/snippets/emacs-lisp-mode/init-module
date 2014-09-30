@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+#name : init-module
+#key : init-module
+# --
+;;; `(f-filename (buffer-file-name))` --- ${1:foo-mode settings}
+
+;;; Commentary:
+
+;;; Code:
+
+(use-package foo-mode
+  :init (progn
+           $0))
+
+;;; `(f-filename (buffer-file-name))` ends here

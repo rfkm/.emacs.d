@@ -1,0 +1,40 @@
+# -*- mode: snippet -*-
+#name : sf2-form-type
+#key : sf2-form-type
+# --
+<?php
+
+namespace `(my/guess-namespace)`;
+
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormError;
+use Symfony\Component\Form\FormEvents;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+
+/**
+ * `(my/guess-php-class-name)`
+ *
+ * @author `(my/guess-user-name-from-git)` <`(my/guess-user-email-from-git)`>
+ */
+class `(my/guess-php-class-name)` extends AbstractType
+{
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('name', null, []);
+    }
+    
+    public function getName()
+    {
+        return '`(my/guess-sf2-service-name)`';
+    }
+
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        parent::setDefaultOptions($resolver);
+        
+        $resolver->setDefaults([]);
+    }
+
+}

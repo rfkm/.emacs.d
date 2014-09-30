@@ -2,6 +2,8 @@
 *.elc
 \#*\#
 .cask
+.mc-lists.el
+eshell/
 .DS_Store
 recentf
 projectile-bookmarks.eld

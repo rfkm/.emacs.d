@@ -65,6 +65,8 @@
 (depends-on "ggtags")
 
 (depends-on "php-mode")
+(depends-on "yaml-mode")
+(depends-on "scss-mode")
 
 (depends-on "org-plus-contrib")
 

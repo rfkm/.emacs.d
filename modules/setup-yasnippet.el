@@ -17,6 +17,11 @@
                :bind ("C-c y" . helm-yas-complete)))))
 
 
+(defun my/guess-user-name-from-git ()
+  (s-trim (shell-command-to-string "git config --get user.name")))
+
+(defun my/guess-user-email-from-git ()
+  (s-trim (shell-command-to-string "git config --get user.email")))
 
 ;; (yas/setup "~/.emacs.d/plugin/yasnippet-0.6.1c")
 

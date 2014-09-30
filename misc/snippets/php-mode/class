@@ -4,11 +4,11 @@
 # expand-env: ((yas/indent-line 'fixed))
 # --
 /**
- * $1
+ * `(my/guess-php-class-name)`
  *
- * @author Ryo Fukumuro <rkworks@o0o.co>
+ * @author `(my/guess-user-name-from-git)` <`(my/guess-user-email-from-git)`>
  */
-$2class $1 extends ${3:Controller}
+class `(my/guess-php-class-name)` extends ${1:Controller}
 {
   $0$>
 }

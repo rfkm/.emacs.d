@@ -115,6 +115,9 @@
 ;; Easily navigate sillycased words
 (global-subword-mode 1)
 
+;; No lock files
+(setq create-lockfiles nil)
+
 ;; tramp
 ;; (require 'tramp)
 ;; (defadvice tramp-handle-vc-registered (around tramp-handle-vc-registered-around activate)
@@ -209,13 +212,12 @@
 
 ;; projectile
 (use-package projectile
-  :bind ("C-c p p" . projectile-switch-project)
+  :bind (("C-c p p" . projectile-switch-project)
+         ("C-x g" . projectile-find-file))
   :init (progn
-          (setq projectile-completion-system 'ido)
+          (setq projectile-completion-system 'helm)
+          (setq projectile-use-git-grep t)
           (projectile-global-mode 1)))
-
-(use-package helm-projectile
-  :bind ("C-x g" . helm-projectile))
 
 ;; helm-ag
 (use-package helm-ag
@@ -230,5 +232,4 @@
   :bind (("s-q" . quickrun)
          ("s-Q" . quickrun-shell)))
 
-(provide 'setup-basic)
 ;;; setup-basic.el ends here

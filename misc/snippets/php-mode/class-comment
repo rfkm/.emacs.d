@@ -6,5 +6,5 @@
 /**
  * $0
  *
- * @author `(s-trim (shell-command-to-string "git config --get user.name"))` <`(s-trim (shell-command-to-string "git config --get user.email"))`>
+ * @author `(my/guess-user-name-from-git)` <`(my/guess-user-email-from-git)`>
  */
