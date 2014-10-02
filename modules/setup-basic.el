@@ -159,7 +159,8 @@
 ;; whitespace
 (setq whitespace-line-column 80)
 (setq whitespace-style '(face tabs empty trailing lines-tail))
-(whitespace-mode 1)
+
+(global-whitespace-mode +1)
 ;; (add-hook 'before-save-hook 'whitespace-cleanup nil t)
 
 (require 'uniquify)

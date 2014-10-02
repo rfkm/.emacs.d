@@ -12,7 +12,7 @@
 
 (setq ns-use-srgb-colorspace nil)
 
-;; Don't open new frame 
+;; Don't open new frame
 (setq ns-pop-up-frames nil)
 
 ;; Don't use native fullscreen

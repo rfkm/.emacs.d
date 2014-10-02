@@ -40,7 +40,7 @@
               (ruby-block-mode +1)
               (inf-ruby-minor-mode +1)
               (ruby-tools-mode +1))
-            
+
             (add-hook 'ruby-mode-hook 'my/ruby-mode-hook)))
 
 ;;; setup-ruby-mode.el ends here

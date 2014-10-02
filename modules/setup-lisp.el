@@ -8,6 +8,7 @@
 
 ;; paredit
 (use-package paredit
+  :defer t
   :config (progn
             (when my/use-ergonomic-key-bindings
               (bind-keys :map paredit-mode-map
@@ -52,8 +53,8 @@
 ;; clojure
 (use-package clojure-mode
   :defer t
-  :config 
-  (progn 
+  :config
+  (progn
     (use-package clojure-mode-extra-font-locking)
     (use-package midje-mode
       :init
@@ -71,11 +72,6 @@
         (eval-after-load "auto-complete"
           '(add-to-list 'ac-modes 'cider-mode))))
     ))
-
-(use-package ace-jump-mode
-  :bind ("C-." . ace-jump-mode)
-  :config
-  (message "Yay, ace-jump-mode was actually loaded!"))
 
 ;; clojure-mode
 ;; (bundle! clojure-mode

@@ -43,7 +43,7 @@
     (set-fontset-font nil '(#x0080 . #x024F) fontspec) ; 分音符付きラテン
     (set-fontset-font nil '(#x0370 . #x03FF) fontspec) ; ギリシャ文字
     )
-  
+
   ;; Frame alphe
   (defun my/change-frame-alpha (delta)
     (let* ((current-alpha (or (frame-parameter (selected-frame) 'alpha) 100))

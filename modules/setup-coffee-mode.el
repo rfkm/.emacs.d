@@ -7,6 +7,7 @@
 (use-package coffee-mode
   :bind ("M-r" . coffee-compile-buffer)
   :config (progn
+            (message "Configuring coffee-mode...")
             (defun my/coffee-mode-hook ()
               ;; I'm so sorry but I prefer hard-tab in CoffeeScript.
               ;; Let's use git's filter.
@@ -22,7 +23,7 @@
               (and (file-exists-p (buffer-file-name))
                    (file-exists-p (coffee-compiled-file-name))
                    (coffee-cos-mode t)))
-            
+
             (add-hook 'coffee-mode-hook 'my/coffee-mode-hook)))
 
 ;;; setup-coffee-mode.el ends here
