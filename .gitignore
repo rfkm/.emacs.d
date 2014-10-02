@@ -4,6 +4,7 @@
 .cask
 .mc-lists.el
 eshell/
+elpa/
 .DS_Store
 recentf
 projectile-bookmarks.eld

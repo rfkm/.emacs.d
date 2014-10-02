@@ -7,8 +7,9 @@
 (use-package yaml-mode
   :mode "\\.yml$"
   :config (progn
-            (bind-keys :map yaml-mode-map
-                       ("C-j" . backward-char)
-                       ("C-m" . newline-and-indent))))
+            (when my/use-ergonomic-key-bindings
+              (bind-keys :map yaml-mode-map
+                         ("C-j" . nil)
+                         ("C-m" . nil)))))
 
 ;;; setup-yaml-mode.el ends here

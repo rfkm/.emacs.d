@@ -192,9 +192,10 @@
          ("C-*" . mc/mark-all-like-this)))
 
 ;; jump-char
-(use-package jump-char
-  :bind (("C-f" . jump-char-forward)
-         ("M-f" . jump-char-backward)))
+(when my/use-ergonomic-key-bindings
+  (use-package jump-char
+    :bind (("C-f" . jump-char-forward)
+           ("M-f" . jump-char-backward))))
 
 ;; undo-tree
 (use-package undo-tree

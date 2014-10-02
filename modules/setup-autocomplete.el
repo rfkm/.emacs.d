@@ -15,12 +15,16 @@
             (setq ac-auto-show-menu 0.1)
             
             (bind-keys :map ac-completing-map
-                       ("C-k" . ac-next)
                        ("C-s" . ac-isearch)
-                       ("A-i" . ac-previous)
+                       
                        )
             (bind-keys :map ac-mode-map 
                        ("C-'" . auto-complete))
+
+            (when my/use-ergonomic-key-bindings
+              (bind-keys :map ac-completing-map
+                         ("A-i" . ac-previous)
+                         ("C-k" . ac-next)))
             
             (setf (symbol-function 'yas-active-keys)
                   (lambda ()

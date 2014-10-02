@@ -68,6 +68,13 @@
 (depends-on "yaml-mode")
 (depends-on "scss-mode")
 (depends-on "coffee-mode")
+(depends-on "ruby-block")
+(depends-on "ruby-end")
+(depends-on "yari")
+(depends-on "inf-ruby")
+(depends-on "ruby-tools")
+
+
 
 (depends-on "org-plus-contrib")
 

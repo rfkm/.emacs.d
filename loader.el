@@ -24,7 +24,7 @@
   "Load modules."
   (setq-default init-loader-show-log-after-init t
                 init-loader-byte-compile t
-                init-loader-default-regexp "\\`\\(?:setup-\\|utils-\\|custom.el\\)"
+                init-loader-default-regexp "\\`\\(?:setup-\\|utils\\|custom.el\\)"
                 init-loader-sort-function 'my/module-selector)
     (init-loader-load my/modules-dir))
 

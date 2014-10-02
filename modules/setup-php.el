@@ -19,25 +19,26 @@
 (use-package php-mode
   :defer t
   :config (progn
-          (setq php-template-compatibility nil)
-          (setq php-mode-coding-style 'symfony2)
-          (bind-keys :map php-mode-map
-                     ("C-d" . kill-whole-line))
-          (defun my/php-mode-hook ()
-            ;; gtags
-            (ggtags-mode 1)
+            (setq php-template-compatibility nil)
+            (setq php-mode-coding-style 'symfony2)
+            (when my/use-ergonomic-key-bindings
+              (bind-keys :map php-mode-map
+                         ("C-d" . nil)))
+            (defun my/php-mode-hook ()
+              ;; gtags
+              (ggtags-mode 1)
 
-            ;; autocomplete
-            (make-local-variable 'ac-sources)
-            (setq ac-sources '(
-                               ac-source-dictionary
-                               ac-source-words-in-same-mode-buffers
-                               ac-source-yasnippet
-                               ac-source-gtags
-                               ac-source-filename
-                               ))
-            (auto-complete-mode 1))
-          (add-hook 'php-mode-hook 'my/php-mode-hook)))
+              ;; autocomplete
+              (make-local-variable 'ac-sources)
+              (setq ac-sources '(
+                                 ac-source-dictionary
+                                 ac-source-words-in-same-mode-buffers
+                                 ac-source-yasnippet
+                                 ac-source-gtags
+                                 ac-source-filename
+                                 ))
+              (auto-complete-mode 1))
+            (add-hook 'php-mode-hook 'my/php-mode-hook)))
 
 (defun my/guess-php-namespace ()
   (->> default-directory

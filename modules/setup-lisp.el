@@ -9,15 +9,16 @@
 ;; paredit
 (use-package paredit
   :config (progn
-            (bind-keys :map paredit-mode-map
-                       ("C-k"   . next-line)
-                       ("C-d"   . paredit-kill)
-                       ("C-o"   . paredit-forward-delete)
-                       ("C-M-o" . paredit-forward-kill-word)
-                       ("C-u"   . paredit-backward-delete)
-                       ("C-M-u" . paredit-backward-kill-word)
-                       ("C-j"   . backward-char)
-                       ("C-M-u" . backward-kill-word))
+            (when my/use-ergonomic-key-bindings
+              (bind-keys :map paredit-mode-map
+                         ("C-k"   . nil)
+                         ("C-d"   . paredit-kill)
+                         ("C-o"   . paredit-forward-delete)
+                         ("C-M-o" . paredit-forward-kill-word)
+                         ("C-u"   . paredit-backward-delete)
+                         ("C-M-u" . paredit-backward-kill-word)
+                         ("C-j"   . backward-char)
+                         ("C-M-u" . backward-kill-word)))
 
             ;; Enable `paredit-mode' in the minibuffer, during `eval-expression'.
             (defun conditionally-enable-paredit-mode ()

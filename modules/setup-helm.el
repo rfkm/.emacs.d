@@ -16,14 +16,15 @@
            ("M-x" . helm-M-x)
            ("M-y" . helm-show-kill-ring))
 
-(bind-keys :map helm-map
-           ("C-k" . helm-next-line)
-           ("A-i" . helm-previous-line)
-           ("C-d" . helm-delete-minibuffer-contents)
-           ("C-n" . helm-next-page)
-           ("C-p" . helm-previous-page)
-           ("C-l" . helm-next-source)
-           ("C-j" . helm-previous-source))
+(when my/use-ergonomic-key-bindings
+  (bind-keys :map helm-map
+             ("C-k" . helm-next-line)
+             ("A-i" . helm-previous-line)
+             ("C-d" . helm-delete-minibuffer-contents)
+             ("C-n" . helm-next-page)
+             ("C-p" . helm-previous-page)
+             ("C-l" . helm-next-source)
+             ("C-j" . helm-previous-source)))
 
 (when (executable-find "curl")
   (setq helm-google-suggest-use-curl-p t))

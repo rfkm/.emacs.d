@@ -145,11 +145,12 @@ those files."
   :defer t
   :config (progn
             (defun my/wdired-mode-hook ()
-              (bind-keys :map wdired-mode-map
-                         ("C-j" . nil)
-                         ("C-o" . nil)
-                         ("C-n" . nil)
-                         ("C-p" . nil)))
+              (when my/use-ergonomic-key-bindings
+                (bind-keys :map wdired-mode-map
+                           ("C-j" . nil)
+                           ("C-o" . nil)
+                           ("C-n" . nil)
+                           ("C-p" . nil))))
             (add-hook 'wdired-mode-hook 'my/wdired-mode-hook)))
 
 ;;; setup-dired.el ends here

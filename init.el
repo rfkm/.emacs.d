@@ -4,27 +4,38 @@
 
 ;;; Code:
 
-;; emacs directory
+;; Determine `user-emacs-directory'.
 (when load-file-name
   (setq user-emacs-directory (expand-file-name
                               (file-name-directory load-file-name))))
 
-;; bootstrap
+
+;; Customization variables
+(defgroup my/settings nil
+  "My settings."
+  :group 'emacs)
+
+(defcustom my/use-ergonomic-key-bindings t
+  "Non-nil to use ergonomic key bindings.  See setup-key-bindings.el.
+You need to restart Emacs after changing the value."
+  :group 'my/settings
+  :type 'boolean)
+
+
+;; Loading Cask, configuring paths...
 (load (locate-user-emacs-file "bootstrap"))
 
-;; load module loader
+;; Load modules
 (load (locate-user-emacs-file "loader"))
 
-;; define modules to load
 (setq my/modules (list
                   "setup-basic"
+                  "custom"
                   "setup-key-bindings"
                   ;; "setup-session"
-                  "custom"
                   "setup-ui"
                   (when mac? "setup-osx")
                   "setup-migemo"
-                  ;; "setup-anything"
                   "setup-helm"
                   ;; "setup-tags"
                   "setup-autocomplete"
@@ -47,16 +58,16 @@
                   "setup-org-mode"
                   ;; "setup-android-mode"
                   "setup-php"
-                  ;; "setup-ruby-mode"
+                  "setup-ruby-mode"
                   "setup-scss-mode"
                   ;; "setup-visual-basic-mode"
                   "setup-ace-jump-mode"
+                  ;; "setup-quickrun"
+                  ;; "setup-appearance"
                   ;; "utils-file"
                   ;; "utils-editting"
-                  ;;"setup-evil"
-                  ))
+                  "utils"))
 
-;; load modules
 (my/load-modules)
 
 ;;; init.el ends here
