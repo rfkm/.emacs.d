@@ -29,8 +29,8 @@ You need to restart Emacs after changing the value."
 (load (locate-user-emacs-file "loader"))
 
 (setq my/modules (list
-                  "setup-basic"
                   "custom"
+                  "setup-basic"
                   "setup-key-bindings"
                   ;; "setup-session"
                   "setup-ui"
