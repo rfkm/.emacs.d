@@ -1,3 +1,9 @@
+;;; setup-auto-complete-mode.el --- auto-complete-mode settings
+
+;;; Commentary:
+
+;;; Code:
+
 (use-package auto-complete
   :config (progn
             ;; (setq ac-dictionary-directories (locate-user-emacs-file "ac-dict"))
@@ -33,3 +39,5 @@
             (setf (symbol-function 'yas-active-keys)
                   (lambda ()
                     (remove-duplicates (mapcan #'yas--table-all-keys (yas--get-snippet-tables)))))))
+
+;;; setup-auto-complete-mode.el ends here
