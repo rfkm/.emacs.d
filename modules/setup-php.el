@@ -39,14 +39,11 @@
               (ggtags-mode 1)
 
               ;; autocomplete
-              (make-local-variable 'ac-sources)
-              (setq ac-sources '(
-                                 ac-source-dictionary
-                                 ac-source-words-in-same-mode-buffers
-                                 ac-source-yasnippet
-                                 ac-source-gtags
-                                 ac-source-filename
-                                 ))
+              (setq-local ac-sources '(ac-source-dictionary
+                                       ac-source-words-in-same-mode-buffers
+                                       ac-source-yasnippet
+                                       ac-source-gtags
+                                       ac-source-filename))
               (auto-complete-mode 1))
             (add-hook 'php-mode-hook 'my/php-mode-hook)))
 
