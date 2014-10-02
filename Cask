@@ -65,6 +65,7 @@
 (depends-on "ggtags")
 
 (depends-on "php-mode")
+(depends-on "inf-php")
 (depends-on "yaml-mode")
 (depends-on "scss-mode")
 (depends-on "coffee-mode")

@@ -19,11 +19,21 @@
 (use-package php-mode
   :defer t
   :config (progn
+            (message "Configuring php-mode...")
+
+            (use-package inf-php
+              :commands (inf-php)
+              :init (progn
+                      (bind-keys :map php-mode-map
+                                 ("C-c C-s" . inf-php))))
+            
             (setq php-template-compatibility nil)
             (setq php-mode-coding-style 'symfony2)
+            
             (when my/use-ergonomic-key-bindings
               (bind-keys :map php-mode-map
                          ("C-d" . nil)))
+            
             (defun my/php-mode-hook ()
               ;; gtags
               (ggtags-mode 1)
