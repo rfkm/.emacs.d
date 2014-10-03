@@ -26,7 +26,7 @@ You need to restart Emacs after changing the value."
 (load (locate-user-emacs-file "bootstrap"))
 
 ;; Load modules
-(load (locate-user-emacs-file "loader"))
+(require 'core-loader)
 
 (setq my/modules (list
                   "custom"

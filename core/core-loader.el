@@ -1,8 +1,9 @@
-;;; loader.el --- loader
+;;; core-loader.el --- core-loader
 
 ;;; Commentary:
 
 ;;; Code:
+
 (defvar my/modules-dir (locate-user-emacs-file "modules"))
 (defvar my/modules nil)
 
@@ -46,5 +47,5 @@
 
 (bind-key "C-x r ." 'my/helm-list-emacs-modules)
 
-(provide 'loader)
-;;; loader.el ends here
+(provide 'core-loader)
+;;; core-loader.el ends here

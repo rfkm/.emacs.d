@@ -28,6 +28,9 @@
 (setq exec-path-from-shell-variables '("PATH" "MANPATH" "GOPATH"))
 (exec-path-from-shell-initialize)
 
+;; Add core module directory to the load path
+(add-to-list 'load-path (expand-file-name "core" user-emacs-directory))
+
 ;; Add external projects to the load path
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 (defun update-load-path ()
