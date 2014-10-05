@@ -28,14 +28,14 @@
             (add-hook 'minibuffer-setup-hook 'conditionally-enable-paredit-mode)))
 
 ;; el-doc
-(setq eldoc-idle-delay 0.2)
-(setq eldoc-minor-mode-string "")
+;; (setq eldoc-idle-delay 0.2)
+;; (setq eldoc-minor-mode-string "")
 
 ;; hooks
 (defun my/lisp-mode-defaults ()
   (paredit-mode 1)
   (rainbow-delimiters-mode 1)
-  (turn-on-eldoc-mode))
+  (eldoc-mode 1))
 
 (defun my/lisp-mode-hook ()
   (my/lisp-mode-defaults))
@@ -67,11 +67,49 @@
       :init
       (progn
         (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
-        (add-hook 'cider-mode-hook 'ac-cider-setup)
-        (add-hook 'cider-repl-mode-hook 'ac-cider-setup)
+        (add-hook 'cider-mode-hook (lambda ()
+                                     ;; Currently, ac-cider's default source is broken.
+                                     ;; See: https://github.com/clojure-emacs/ac-cider/issues/13
+                                     ;; (ac-cider-setup)
+                                     (setq-default ac-use-fuzzy nil)
+                                     (add-to-list 'ac-sources '((available . ac-cider-available-p)
+                                                                (candidate-face . ac-cider-candidate-face)
+                                                                (selection-face . ac-cider-selection-face)
+                                                                (prefix . cider-completion-symbol-start-pos)
+                                                                (document . ac-cider-documentation)
+                                                                ;; (match . ac-cider-match-everything)
+                                                                (cache)
+                                                                (candidates . ac-cider-candidates-everything)
+                                                                (symbol . "v")))
+                                     ))
+        ;; (add-hook 'cider-mode-hook 'ac-cider-setup)
         (eval-after-load "auto-complete"
-          '(add-to-list 'ac-modes 'cider-mode))))
-    ))
+          '(progn (add-to-list 'ac-modes 'cider-mode)
+                  (add-to-list 'ac-modes 'cider-repl-mode)))))
+
+    (use-package cider
+      :config (progn
+                (use-package cider-eldoc
+                  :config (progn
+                            (add-hook 'cider-mode-hook (lambda ()
+                                                         (paredit-mode 1)
+                                                         (rainbow-delimiters-mode 1)
+                                                         (cider-turn-on-eldoc-mode)))
+                            (add-hook 'cider-repl-mode-hook (lambda ()
+                                                         (paredit-mode 1)
+                                                         (rainbow-delimiters-mode 1)
+                                                         (cider-turn-on-eldoc-mode)))))
+                (when my/use-ergonomic-key-bindings
+                  (bind-keys :map cider-mode-map
+                             ("C-j" . nil))
+                  (bind-keys :map cider-repl-mode-map
+                             ("C-j" . nil)))))
+
+    (defun my/clojure-mode-hook ()
+      (paredit-mode 1)
+      (rainbow-delimiters-mode 1))
+
+    (add-hook 'clojure-mode-hook 'my/clojure-mode-hook)))
 
 ;; clojure-mode
 ;; (bundle! clojure-mode
