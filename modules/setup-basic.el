@@ -48,6 +48,10 @@
 (defadvice linum-schedule (around my-linum-schedule () activate)
   (run-with-idle-timer 0.2 nil #'linum-update-current))
 (setq linum-format "  %d ")
+(eval-after-load "auto-complete"
+  ;; Disable line number updates while auto-comple window is
+  ;; displayed.
+  '(ac-linum-workaround))
 (global-linum-mode)
 
 ;; display time on mode line
