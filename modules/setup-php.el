@@ -35,6 +35,8 @@
                          ("C-d" . nil)))
 
             (defun my/php-mode-hook ()
+              (add-hook 'before-save-hook 'my/cleanup-buffer nil t)
+
               ;; gtags
               (ggtags-mode 1)
 
