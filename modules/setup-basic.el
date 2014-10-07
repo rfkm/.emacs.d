@@ -88,11 +88,11 @@
 ;; Remove text in active region if inserting text
 (delete-selection-mode 1)
 
-;; カーソルの位置が何文字目かを表示する
+;; Show the current column number
 (column-number-mode 1)
-;; カーソルの位置が何行目かを表示する
-(line-number-mode 1)
 
+;; Show the current line number
+(line-number-mode 1)
 
 ;; Lines should be 80 characters wide, not 72
 (setq fill-column 80)
@@ -140,7 +140,6 @@
 (require 'server)
 (unless (server-running-p)
   (server-start))
-
 
 ;; spell checking
 (setq-default ispell-program-name "aspell")
