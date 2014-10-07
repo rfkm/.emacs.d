@@ -34,18 +34,7 @@
                   (cider-turn-on-eldoc-mode)
                   (ac-flyspell-workaround) ; ?
 
-                  ;; Currently, ac-cider's default source is broken.
-                  ;; See: https://github.com/clojure-emacs/ac-cider/issues/13
-                  ;; (ac-cider-setup)
-                  (add-to-list 'ac-sources '((available . ac-cider-available-p)
-                                             (candidate-face . ac-cider-candidate-face)
-                                             (selection-face . ac-cider-selection-face)
-                                             (prefix . cider-completion-symbol-start-pos)
-                                             (document . ac-cider-documentation)
-                                             ;; (match . ac-cider-match-everything)
-                                             (cache)
-                                             (candidates . ac-cider-candidates-everything)
-                                             (symbol . "v"))))
+                  (ac-cider-setup))
 
                 (add-hook 'cider-mode-hook 'my/cider-mode-hook)
                 (add-hook 'cider-repl-mode-hook 'my/cider-mode-hook)
