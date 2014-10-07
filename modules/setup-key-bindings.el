@@ -13,7 +13,8 @@
 
 (bind-keys*
  ("C-t" . other-window)
- ("C-M-t" . other-frame))
+ ("C-M-t" . other-frame)
+ ("C-x C-r" . my/rename-current-buffer-file))
 
 (bind-keys
  ("M-l" . recenter)
@@ -34,7 +35,7 @@
   (bind-keys
    ("C-l" . forward-char)
    ("C-j" . backward-char)
-   ("A-i" . previous-line)		; C-i
+   ("A-i" . previous-line)      ; C-i
    ("C-k" . next-line)
    ("C-M-l" . forward-word)
    ("C-M-j" . backward-word)

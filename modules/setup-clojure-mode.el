@@ -14,7 +14,7 @@
     (use-package clojure-mode-extra-font-locking)
     (use-package midje-mode)
     (use-package clj-refactor
-      :config (cljr-add-keybindings-with-modifier "C-H-"))
+      :config (cljr-add-keybindings-with-prefix "C-c j"))
     (use-package cider
       :config (progn
                 (setq nrepl-hide-special-buffers t)
@@ -42,8 +42,7 @@
                 (defun cider-namespace-refresh ()
                   (interactive)
                   (cider-interactive-eval
-                   "(require 'clojure.tools.namespace.repl)
-(clojure.tools.namespace.repl/refresh)"))
+                   "(require 'clojure.tools.namespace.repl)(clojure.tools.namespace.repl/refresh)"))
 
                 (when my/use-ergonomic-key-bindings
                   (bind-keys :map cider-mode-map
@@ -52,6 +51,7 @@
                              ("C-j" . nil)))))
 
     (defun my/clojure-mode-hook ()
+      (add-hook 'before-save-hook 'my/cleanup-buffer nil t)
       (paredit-mode 1)
       (rainbow-delimiters-mode 1))
 

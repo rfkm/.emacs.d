@@ -39,7 +39,11 @@
 (defun my/lisp-mode-hook ()
   (my/lisp-mode-defaults))
 
-(add-hook 'emacs-lisp-mode-hook 'my/lisp-mode-hook)
+(defun my/emacs-lisp-mode-hook ()
+  (add-hook 'before-save-hook 'my/cleanup-buffer nil t)
+  (my/lisp-mode-defaults))
+
+(add-hook 'emacs-lisp-mode-hook 'my/emacs-lisp-mode-hook)
 (add-hook 'lisp-interaction-mode-hook 'my/lisp-mode-hook)
 (add-hook 'lisp-mode-hook 'my/lisp-mode-hook)
 (add-hook 'ielm-mode-hook 'my/lisp-mode-hook)
