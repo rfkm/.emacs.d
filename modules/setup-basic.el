@@ -98,6 +98,8 @@
 (setq fill-column 80)
 
 ;; Save a list of recent files visited.
+(setq recentf-save-file (locate-user-emacs-file ".recentf"))
+(setq recentf-max-saved-items 2000)
 (recentf-mode 1)
 
 ;; Never insert tabs
