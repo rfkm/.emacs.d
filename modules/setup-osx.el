@@ -53,14 +53,14 @@
   (shell-command (concat "osascript "  (locate-user-emacs-file "misc/applescripts/chrome.scpt reload"))))
 (bind-key "s-r" 'my/chrome-reload)
 
-;; Enable clipboard on CUI Emacs
+;; Enable clipboard sharing on CUI Emacs
 (unless window-system
   (defvar my/prev-yanked-text nil "*previous yanked text")
   (setq interprogram-cut-function
         (lambda (text &optional push)
           (let ((process-connection-type nil))
             (let ((proc (start-process "pbcopy" nil "pbcopy")))
-              (process-send-string proc string)
+              (process-send-string proc text)
               (process-send-eof proc)
               ))))
 
