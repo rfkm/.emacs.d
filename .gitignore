@@ -3,6 +3,7 @@
 \#*\#
 .cask
 .mc-lists.el
+.nrepl-history
 eshell/
 elpa/
 .DS_Store
