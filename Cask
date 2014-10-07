@@ -75,14 +75,12 @@
 (depends-on "inf-ruby")
 (depends-on "ruby-tools")
 
-
-
 (depends-on "org-plus-contrib")
 
 ;; Themes
 (depends-on "color-theme-sanityinc-tomorrow")
-(depends-on "monokai-theme")
-(depends-on "zenburn-theme")
-(depends-on "solarized-theme")
 (depends-on "gruvbox-theme")
+(depends-on "monokai-theme")
+(depends-on "solarized-theme")
 (depends-on "spacegray-theme")
+(depends-on "zenburn-theme")
