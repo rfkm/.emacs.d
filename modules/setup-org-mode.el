@@ -5,7 +5,9 @@
 ;;; Code:
 
 (use-package org
+  :defer t
   :config (progn
+            (message "Configuring org-mode...")
             (setq org-directory "~/Dropbox/org")
             (setq org-default-notes-file (concat org-directory "/notes.org"))
             (setq org-agenda-files (list org-directory))
