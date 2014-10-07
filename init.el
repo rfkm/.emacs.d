@@ -64,7 +64,6 @@ You need to restart Emacs after changing the value."
                   ;; "setup-visual-basic-mode"
                   "setup-ace-jump-mode"
                   ;; "setup-quickrun"
-                  ;; "setup-appearance"
                   ;; "utils-file"
                   ;; "utils-editting"
                   "utils"))
