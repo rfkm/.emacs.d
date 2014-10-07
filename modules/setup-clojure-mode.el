@@ -12,6 +12,7 @@
     (message "Configuring clojure-mode...")
 
     (use-package clojure-mode-extra-font-locking)
+    (use-package align-cljlet)
     (use-package midje-mode)
     (use-package clj-refactor
       :config (cljr-add-keybindings-with-prefix "C-c j"))
@@ -52,6 +53,7 @@
 
     (defun my/clojure-mode-hook ()
       (add-hook 'before-save-hook 'my/cleanup-buffer nil t)
+      (clj-refactor-mode 1)
       (paredit-mode 1)
       (rainbow-delimiters-mode 1))
 

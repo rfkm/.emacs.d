@@ -55,6 +55,7 @@
 (depends-on "clojure-mode-extra-font-locking")
 (depends-on "cider")
 (depends-on "ac-cider")
+(depends-on "align-cljlet")
 
 (depends-on "undo-tree")
 (depends-on "popwin")
