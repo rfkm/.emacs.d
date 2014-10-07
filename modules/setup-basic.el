@@ -180,7 +180,9 @@
 
 ;; open-junk-file
 (use-package open-junk-file
-  :bind ("C-c M-j" . open-junk-file))
+  :bind ("C-c s-j" . open-junk-file)
+  :config (setq open-junk-file-format "~/Dropbox/junk/%Y%m%d-%H%M%S."))
+
 
 ;; shell-pop
 (use-package shell-pop
