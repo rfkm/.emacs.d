@@ -46,18 +46,23 @@
             ;; TODO: Export settings
 
             ;; LaTeX
-            (setq org-latex-pdf-process '("ptex2pdf -l -ot '-synctex=1 -shell-escape' %f"
-                                          "ptex2pdf -l -ot '-synctex=1 -shell-escape' %f"
-                                          "ptex2pdf -l -ot '-synctex=1 -shell-escape' %f"))
+            (use-package ox-latex
+              :defer t
+              :config (progn
+                        (setq org-latex-pdf-process '("ptex2pdf -l -ot '-synctex=1 -shell-escape' %f"
+                                                      "ptex2pdf -l -ot '-synctex=1 -shell-escape' %f"
+                                                      "ptex2pdf -l -ot '-synctex=1 -shell-escape' %f"))
 
-            (add-to-list 'org-latex-classes '("jsarticle" "\\documentclass[a4paper]{jsarticle}"
-                                              ("\\section{%s}" . "\\section*{%s}")
-                                              ("\\subsection{%s}" . "\\subsection*{%s}")
-                                              ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                                              ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                                              ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-            (setq org-latex-default-class "jsarticle")
-            (setq org-latex-listings nil) ; TODO: use minted
-            ))
+                        (add-to-list 'org-latex-classes '("jsarticle" "\\documentclass[a4paper]{jsarticle}"
+                                                          ("\\section{%s}" . "\\section*{%s}")
+                                                          ("\\subsection{%s}" . "\\subsection*{%s}")
+                                                          ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                                                          ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                                                          ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+                        (setq org-latex-default-class "jsarticle")
+
+                        ;; TODO: Use minted instead of listings
+                        ;; (setq org-latex-listings 'minted)
+                        ))))
 
 ;;; setup-org-mode.el ends here
