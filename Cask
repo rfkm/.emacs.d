@@ -85,3 +85,6 @@
 (depends-on "solarized-theme")
 (depends-on "spacegray-theme")
 (depends-on "zenburn-theme")
+
+;; Experimental
+(depends-on "e2wm")
