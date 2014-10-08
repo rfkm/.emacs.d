@@ -14,7 +14,7 @@
                                                    (shell-command-to-string brewed-suffix))))
        (pred (lambda (x) (and (file-exists-p x) x)))
        (cask-path (car (delq nil (mapcar pred `("~/.cask/cask.el"
-                                                  ,brewed-path))))))
+                                                ,brewed-path))))))
   (if cask-path
       (progn (require 'cask cask-path)
              (cask-initialize))
@@ -33,12 +33,12 @@
 
 ;; Add external projects to the load path
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
-(defun update-load-path ()
+(defun my/update-load-path ()
   (interactive)
   (dolist (project (directory-files (expand-file-name "site-lisp" user-emacs-directory) t "\\w+"))
-   (when (file-directory-p project)
-     (add-to-list 'load-path project))))
-(update-load-path)
+    (when (file-directory-p project)
+      (add-to-list 'load-path project))))
+(my/update-load-path)
 
 ;; Define constants
 (defconst mac? (eq system-type 'darwin))
