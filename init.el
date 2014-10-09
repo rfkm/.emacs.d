@@ -47,7 +47,6 @@ You need to restart Emacs after changing the value."
                   ;; "setup-wrap-region-mode"
                   "setup-vcs"
                   ;; "setup-w3m"
-                  ;; "setup-experiment"
                   "setup-lisp"
                   "setup-clojure-mode"
                   ;; "setup-lua"
@@ -63,6 +62,7 @@ You need to restart Emacs after changing the value."
                   "setup-scss-mode"
                   ;; "setup-visual-basic-mode"
                   "setup-ace-jump-mode"
+                  "setup-experiment"
                   "utils"))
 
 (my/load-modules)
