@@ -12,7 +12,9 @@
     (message "Configuring clojure-mode...")
 
     (use-package clojure-mode-extra-font-locking)
-    (use-package align-cljlet)
+    (use-package align-cljlet
+      :init (bind-keys :map clojure-mode-map
+                       ("C-c j a l" . align-cljlet)))
     (use-package midje-mode)
     (use-package clj-refactor
       :config (cljr-add-keybindings-with-prefix "C-c j"))
