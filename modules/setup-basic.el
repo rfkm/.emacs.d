@@ -22,6 +22,14 @@
 ;; No splash screen
 (setq inhibit-startup-message t)
 
+;; bookmarks
+(use-package bookmark
+  :defer t
+  :config (setq bookmark-default-file (locate-user-emacs-file ".bookmarks")))
+
+;; auto save
+(setq auto-save-list-file-prefix (concat user-emacs-directory ".auto-save-list/.saves-"))
+
 ;; Language
 (set-language-environment 'Japanese)
 (prefer-coding-system 'utf-8-unix)
@@ -226,6 +234,8 @@
   :init (progn
           (setq projectile-completion-system 'helm)
           (setq projectile-use-git-grep t)
+          (setq projectile-known-projects-file (locate-user-emacs-file ".projectile-bookmarks.eld"))
+          (setq projectile-cache-file (locate-user-emacs-file ".projectile.cache"))
           (projectile-global-mode 1)))
 
 ;; helm-ag

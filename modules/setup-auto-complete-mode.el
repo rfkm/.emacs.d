@@ -13,6 +13,7 @@
                                        ac-source-abbrev
                                        ac-source-dictionary
                                        ac-source-words-in-same-mode-buffers))
+            (setq ac-comphist-file (locate-user-emacs-file ".ac-comphist.dat"))
 
             (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
             (add-hook 'c-mode-common-hook 'ac-cc-mode-setup)

@@ -4,10 +4,11 @@
 .cask
 .mc-lists.el
 .nrepl-history
-eshell/
+.eshell/
 elpa/
 .DS_Store
 .recentf
-projectile-bookmarks.eld
-ac-comphist.dat
+.projectile-bookmarks.eld
+.ac-comphist.dat
 tramp
+.bookmarks
