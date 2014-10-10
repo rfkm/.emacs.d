@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+#name : sf2-controller
+#key : sf2-controller
+# --
+<?php
+
+namespace `(my/guess-php-namespace)`;
+
+use Symfony\Component\HttpFoundation\Response;
+
+/**
+ * `(my/guess-php-class-name)`
+ *
+ * @author `(my/guess-user-name-from-git)` <`(my/guess-user-email-from-git)`>
+ */
+class `(my/guess-php-class-name)` extends ApplicationController
+{
+    
+}
