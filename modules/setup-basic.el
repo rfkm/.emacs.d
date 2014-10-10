@@ -195,7 +195,9 @@
 
 ;; shell-pop
 (use-package shell-pop
-  :bind ("C-x C-z" . shell-pop))
+  :bind ("C-x C-z" . shell-pop)
+  :config (progn
+            (shell-pop--set-shell-type 'shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell))))))
 
 ;; expand-region
 (use-package expand-region
