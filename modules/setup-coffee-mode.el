@@ -5,9 +5,13 @@
 ;;; Code:
 
 (use-package coffee-mode
-  :bind ("M-r" . coffee-compile-buffer)
+  :defer t
   :config (progn
             (message "Configuring coffee-mode...")
+
+            (bind-keys :map coffee-mode-map
+                       ("M-r" . coffee-compile-buffer))
+
             (defun my/coffee-mode-hook ()
               ;; I'm so sorry but I prefer hard-tab in CoffeeScript.
               ;; Let's use git's filter.
