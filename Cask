@@ -13,6 +13,7 @@
 (depends-on "htmlize")
 (depends-on "idle-highlight-mode")
 (depends-on "magit")
+(depends-on "git-messenger")
 (depends-on "git-commit-mode")
 (depends-on "git-rebase-mode")
 (depends-on "gitconfig-mode")

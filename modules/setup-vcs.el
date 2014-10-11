@@ -11,4 +11,9 @@
           (setq magit-status-buffer-switch-function 'switch-to-buffer)
           (setq magit-save-some-buffers nil)))
 
+(use-package git-messenger
+  :bind ("C-x v p" . git-messenger:popup-message)
+  :config (progn
+            (add-hook 'git-messenger:popup-buffer-hook 'magit-commit-mode)))
+
 ;;; setup-vcs.el ends here
