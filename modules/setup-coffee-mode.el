@@ -14,7 +14,6 @@
 
             (defun my/coffee-mode-hook ()
               ;; I'm so sorry but I prefer hard-tab in CoffeeScript.
-              ;; Let's use git's filter.
               ;; See: http://stackoverflow.com/questions/2316677/can-git-automatically-switch-between-spaces-and-tabs
               (setq-local indent-tabs-mode t)
               (setq-local coffee-indent-tabs-mode t)
