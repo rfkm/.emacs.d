@@ -73,30 +73,22 @@
                             "ptex2pdf -l -ot '-synctex=1 -shell-escape' %f"
                             "ptex2pdf -l -ot '-synctex=1 -shell-escape' %f"))
 
-                    (defvar my/minted-headers '("\\makeatletter\\chardef\\pdf@shellescape=\\@ne\\makeatother"
-                                                "\\usepackage{minted}"
-                                                "\\usemintedstyle{tango}"
-                                                "\\definecolor{minted_bg}{rgb}{0.97, 0.97, 0.97}"))
-
                     (add-to-list 'org-latex-classes
-                                 '("jsarticle" (s-join "\n" (cons "\\documentclass{jsarticle}"
-                                                                  my/minted-headers))
+                                 '("jsarticle" "\\documentclass{jsarticle}"
                                    ("\\section{%s}" . "\\section*{%s}")
                                    ("\\subsection{%s}" . "\\subsection*{%s}")
                                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                                    ("\\paragraph{%s}" . "\\paragraph*{%s}")
                                    ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
                     (add-to-list 'org-latex-classes
-                                 '("jsreport" (s-join "\n" (cons "\\documentclass[report]{jsbook}"
-                                                                 my/minted-headers))
-                                   ("\\part{%s}" . "\\part*{%s}")
-                                   ("\\chapter{%s}" . "\\chapter*{%s}")
-                                   ("\\section{%s}" . "\\section*{%s}")
-                                   ("\\subsection{%s}" . "\\subsection*{%s}")
-                                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
+                                 '`("jsreport" "\\documentclass[report]{jsbook}"
+                                    ("\\part{%s}" . "\\part*{%s}")
+                                    ("\\chapter{%s}" . "\\chapter*{%s}")
+                                    ("\\section{%s}" . "\\section*{%s}")
+                                    ("\\subsection{%s}" . "\\subsection*{%s}")
+                                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
                     (add-to-list 'org-latex-classes
-                                 '("jsbook" (s-join "\n" (cons "\\documentclass{jsbook}"
-                                                               my/minted-headers))
+                                 '("jsbook" "\\documentclass{jsbook}"
                                    ("\\part{%s}" . "\\part*{%s}")
                                    ("\\chapter{%s}" . "\\chapter*{%s}")
                                    ("\\section{%s}" . "\\section*{%s}")
@@ -104,6 +96,7 @@
                                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
 
                     (setq org-latex-default-class "jsarticle")
+                    (setq org-latex-packages-alist `(("" ,(expand-file-name (locate-user-emacs-file "misc/latex/common")))))
 
                     (setq org-latex-listings 'minted)
                     (setq org-latex-minted-options '(("mathescape" "")
