@@ -67,46 +67,47 @@
         ;; LaTeX
         (use-package ox-latex
           :defer t
-          :config (progn
-                    (setq org-latex-pdf-process
-                          '("ptex2pdf -l -ot '-synctex=1 -shell-escape' %f"
-                            "ptex2pdf -l -ot '-synctex=1 -shell-escape' %f"
-                            "ptex2pdf -l -ot '-synctex=1 -shell-escape' %f"))
+          :config
+          (progn
+            (setq org-latex-pdf-process
+                  '("ptex2pdf -l -ot '-synctex=1 -shell-escape' %f"
+                    "ptex2pdf -l -ot '-synctex=1 -shell-escape' %f"
+                    "ptex2pdf -l -ot '-synctex=1 -shell-escape' %f"))
 
-                    (add-to-list 'org-latex-classes
-                                 '("jsarticle" "\\documentclass{jsarticle}"
-                                   ("\\section{%s}" . "\\section*{%s}")
-                                   ("\\subsection{%s}" . "\\subsection*{%s}")
-                                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-                                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
-                                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-                    (add-to-list 'org-latex-classes
-                                 '`("jsreport" "\\documentclass[report]{jsbook}"
-                                    ("\\part{%s}" . "\\part*{%s}")
-                                    ("\\chapter{%s}" . "\\chapter*{%s}")
-                                    ("\\section{%s}" . "\\section*{%s}")
-                                    ("\\subsection{%s}" . "\\subsection*{%s}")
-                                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
-                    (add-to-list 'org-latex-classes
-                                 '("jsbook" "\\documentclass{jsbook}"
-                                   ("\\part{%s}" . "\\part*{%s}")
-                                   ("\\chapter{%s}" . "\\chapter*{%s}")
-                                   ("\\section{%s}" . "\\section*{%s}")
-                                   ("\\subsection{%s}" . "\\subsection*{%s}")
-                                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
+            (add-to-list 'org-latex-classes
+                         '("jsarticle" "\\documentclass{jsarticle}"
+                           ("\\section{%s}" . "\\section*{%s}")
+                           ("\\subsection{%s}" . "\\subsection*{%s}")
+                           ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                           ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                           ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+            (add-to-list 'org-latex-classes
+                         '`("jsreport" "\\documentclass[report]{jsbook}"
+                            ("\\part{%s}" . "\\part*{%s}")
+                            ("\\chapter{%s}" . "\\chapter*{%s}")
+                            ("\\section{%s}" . "\\section*{%s}")
+                            ("\\subsection{%s}" . "\\subsection*{%s}")
+                            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
+            (add-to-list 'org-latex-classes
+                         '("jsbook" "\\documentclass{jsbook}"
+                           ("\\part{%s}" . "\\part*{%s}")
+                           ("\\chapter{%s}" . "\\chapter*{%s}")
+                           ("\\section{%s}" . "\\section*{%s}")
+                           ("\\subsection{%s}" . "\\subsection*{%s}")
+                           ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
 
-                    (setq org-latex-default-class "jsarticle")
-                    (setq org-latex-packages-alist `(("" ,(expand-file-name (locate-user-emacs-file "misc/latex/common")))))
+            (setq org-latex-default-class "jsarticle")
+            (setq org-latex-packages-alist `(("" ,(locate-user-emacs-file "misc/latex/common"))))
 
-                    (setq org-latex-listings 'minted)
-                    (setq org-latex-minted-options '(("mathescape" "")
-                                                     ;; ("linenos" "")
-                                                     ("numbersep" "5pt")
-                                                     ("bgcolor" "minted_bg")
-                                                     ;; ("frame" "lines")
-                                                     ("fontsize" "\\scriptsize")
-                                                     ("fontfamily" "courier")
-                                                     ("framesep" "2mm")))))
+            (setq org-latex-listings 'minted)
+            (setq org-latex-minted-options '(("mathescape" "")
+                                             ;; ("linenos" "")
+                                             ("numbersep" "5pt")
+                                             ("bgcolor" "minted_bg")
+                                             ;; ("frame" "lines")
+                                             ("fontsize" "\\scriptsize")
+                                             ("fontfamily" "courier")
+                                             ("framesep" "2mm")))))
 
         ;; TODO: More backends
         ))))
