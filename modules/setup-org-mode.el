@@ -82,12 +82,12 @@
                            ("\\paragraph{%s}" . "\\paragraph*{%s}")
                            ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
             (add-to-list 'org-latex-classes
-                         '`("jsreport" "\\documentclass[report]{jsbook}"
-                            ("\\part{%s}" . "\\part*{%s}")
-                            ("\\chapter{%s}" . "\\chapter*{%s}")
-                            ("\\section{%s}" . "\\section*{%s}")
-                            ("\\subsection{%s}" . "\\subsection*{%s}")
-                            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
+                         '("jsreport" "\\documentclass[report]{jsbook}"
+                           ("\\part{%s}" . "\\part*{%s}")
+                           ("\\chapter{%s}" . "\\chapter*{%s}")
+                           ("\\section{%s}" . "\\section*{%s}")
+                           ("\\subsection{%s}" . "\\subsection*{%s}")
+                           ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
             (add-to-list 'org-latex-classes
                          '("jsbook" "\\documentclass{jsbook}"
                            ("\\part{%s}" . "\\part*{%s}")
