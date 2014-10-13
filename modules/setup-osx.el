@@ -20,10 +20,10 @@
 
 ;; I don't know why but, if you call fullscreen function immediately,
 ;; `ns-use-native-fullscreen' may be ignored.
-(run-at-time "1 sec" nil (lambda ()
-                           (--when-let (-first #'fboundp '(toggle-frame-fullscreen
-                                                           ns-toggle-fullscreen))
-                             (funcall it))))
+(run-at-time "1.5 sec" nil (lambda ()
+                             (--when-let (-first #'fboundp '(toggle-frame-fullscreen
+                                                             ns-toggle-fullscreen))
+                               (funcall it))))
 
 (bind-key "M-<f10>" (if (fboundp 'toggle-frame-fullscreen)
                         'toggle-frame-fullscreen

@@ -23,29 +23,30 @@
 
 (defun my/load-modules ()
   "Load modules."
-  (setq-default init-loader-show-log-after-init t
-                init-loader-byte-compile t
-                init-loader-default-regexp "\\`\\(?:setup-\\|utils\\|custom.el\\)"
-                init-loader-sort-function 'my/module-selector)
-    (init-loader-load my/modules-dir))
+  (setq init-loader-show-log-after-init t
+        init-loader-byte-compile t
+        init-loader-default-regexp "\\`\\(?:setup-\\|utils\\|custom.el\\)"
+        init-loader-sort-function 'my/module-selector)
+
+  (init-loader-load my/modules-dir))
 
 ;; Define helm source
-(require 'helm-files)
-(defvar my/helm-source-emacs-modules
-  `((name . "EmacsModules")
-    (candidates . (lambda ()
-                    (with-helm-current-buffer
-                      (let ((dirs (append (directory-files user-emacs-directory t)
-                                          (directory-files my/modules-dir t)))
-                            (pred (lambda (d) (string-match "^\\(?:.*\.el\\|.*[^\.]Cask\\)$" d))))
-                        (-filter pred dirs)))))
-    (type . file)))
+(use-package helm-files
+  :bind ("C-x r ." . my/helm-list-emacs-modules)
+  :config (progn
+            (defvar my/helm-source-emacs-modules
+              `((name . "EmacsModules")
+                (candidates . (lambda ()
+                                (with-helm-current-buffer
+                                  (let ((dirs (append (directory-files user-emacs-directory t)
+                                                      (directory-files my/modules-dir t)))
+                                        (pred (lambda (d) (string-match "^\\(?:.*\.el\\|.*[^\.]Cask\\)$" d))))
+                                    (-filter pred dirs)))))
+                (type . file)))
 
-(defun my/helm-list-emacs-modules ()
-  (interactive)
-  (helm-other-buffer 'my/helm-source-emacs-modules "*helm-emacs-modules*"))
-
-(bind-key "C-x r ." 'my/helm-list-emacs-modules)
+            (defun my/helm-list-emacs-modules ()
+              (interactive)
+              (helm-other-buffer 'my/helm-source-emacs-modules "*helm-emacs-modules*"))))
 
 (provide 'core-loader)
 ;;; core-loader.el ends here
