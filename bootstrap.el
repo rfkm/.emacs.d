@@ -45,5 +45,6 @@
 
 ;; Use `use-package' globally
 (require 'use-package)
+(setq use-package-verbose t)
 
 ;;; bootstrap.el ends here

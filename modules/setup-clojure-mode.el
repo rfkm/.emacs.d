@@ -9,8 +9,6 @@
   :defer t
   :config
   (progn
-    (message "Configuring clojure-mode...")
-
     (use-package clojure-mode-extra-font-locking)
     (use-package align-cljlet
       :init (bind-keys :map clojure-mode-map

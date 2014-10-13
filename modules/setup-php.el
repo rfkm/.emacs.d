@@ -19,8 +19,6 @@
 (use-package php-mode
   :defer t
   :config (progn
-            (message "Configuring php-mode...")
-
             (use-package inf-php
               :commands (inf-php)
               :init (progn

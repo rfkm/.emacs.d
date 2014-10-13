@@ -7,8 +7,6 @@
 (use-package coffee-mode
   :defer t
   :config (progn
-            (message "Configuring coffee-mode...")
-
             (bind-keys :map coffee-mode-map
                        ("M-r" . coffee-compile-buffer))
 

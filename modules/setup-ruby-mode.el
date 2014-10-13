@@ -25,8 +25,6 @@
          ("Appraisals\\'"  . ruby-mode))
   :interpreter (("ruby" . ruby-mode))
   :config (progn
-            (message "Configuring ruby-mode...")
-
             (use-package ruby-end
               :init (setq ruby-end-insert-newline nil))
             (use-package ruby-block)
