@@ -18,8 +18,7 @@
     (when former-list
       (dolist (ele former-list)
         (delete ele files))
-      (setq files (append former-list files))
-      )
+      (setq files (append former-list files)))
     (apply 'start-process "qlmanage_ps" nil "qlmanage" "-px" files)))
 
 (defun my/dired-do-tar-cvzf (output-filename arg)
