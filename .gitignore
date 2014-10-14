@@ -12,3 +12,6 @@ elpa/
 .ac-comphist.dat
 tramp
 .bookmarks
+/url/
+/async-bytecomp.log
+/.emacs.desktop

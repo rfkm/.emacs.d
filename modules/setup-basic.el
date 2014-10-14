@@ -25,7 +25,8 @@
 ;; bookmarks
 (use-package bookmark
   :defer t
-  :config (setq bookmark-default-file (locate-user-emacs-file ".bookmarks")))
+  :config (setq bookmark-default-file (locate-user-emacs-file ".bookmarks")
+                bookmark-save-flag 1))
 
 ;; auto save
 (setq auto-save-list-file-prefix (concat user-emacs-directory ".auto-save-list/.saves-"))
@@ -233,12 +234,14 @@
 (use-package projectile
   :bind (("C-c p p" . projectile-switch-project)
          ("C-x g" . projectile-find-file))
-  :init (progn
-          (setq projectile-completion-system 'helm)
-          (setq projectile-use-git-grep t)
-          (setq projectile-known-projects-file (locate-user-emacs-file ".projectile-bookmarks.eld"))
-          (setq projectile-cache-file (locate-user-emacs-file ".projectile.cache"))
-          (projectile-global-mode 1)))
+  :config
+  (progn
+    (setq projectile-completion-system 'helm)
+    (setq projectile-use-git-grep t)
+    (setq projectile-cache-file (locate-user-emacs-file ".projectile.cache"))
+    (setq projectile-known-projects-file (locate-user-emacs-file ".projectile-bookmarks.eld"))
+    (projectile-load-known-projects)
+    (projectile-global-mode 1)))
 
 ;; helm-ag
 (use-package helm-ag

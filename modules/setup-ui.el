@@ -21,6 +21,8 @@
                                    "%s/%s(%s) %s:%s" month day dayname 24-hours minutes)))
 (display-time-mode t)
 
+(setq split-width-threshold 200)
+
 (when window-system
   ;; Theme
   (load-theme 'solarized-light)
