@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+#name : sf2-validator-constraint
+#key : sf2-validator-constraint
+#contributor : ELSA
+# --
+<?php
+
+namespace `(my/guess-php-namespace)`;
+
+use Symfony\Component\Validator\Constraint;
+
+/**
+ * `(my/guess-php-class-name)`
+ *
+ * @author `(my/guess-user-name-from-git)` <`(my/guess-user-email-from-git)`>
+ * @Annotation
+ */
+class `(my/guess-php-class-name)` extends Constraint
+{
+    public $message = ${1:'The string "%string%" contains an illegal character: it can only contain letters or numbers.'};$0
+}
