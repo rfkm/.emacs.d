@@ -37,7 +37,7 @@ You need to restart Emacs after changing the value."
                   (when mac? "setup-osx")
                   "setup-migemo"
                   "setup-helm"
-                  ;; "setup-tags"
+                  "setup-tags"
                   "setup-auto-complete-mode"
                   "setup-eshell"
                   "setup-dired"

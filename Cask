@@ -65,6 +65,7 @@
 
 (depends-on "anzu")
 (depends-on "ggtags")
+(depends-on "helm-gtags")
 
 (depends-on "php-mode")
 (depends-on "inf-php")

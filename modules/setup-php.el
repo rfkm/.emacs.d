@@ -36,7 +36,7 @@
               (add-hook 'before-save-hook 'my/cleanup-buffer nil t)
 
               ;; gtags
-              (ggtags-mode 1)
+              (helm-gtags-mode 1)
 
               ;; autocomplete
               (setq-local ac-sources '(ac-source-dictionary
