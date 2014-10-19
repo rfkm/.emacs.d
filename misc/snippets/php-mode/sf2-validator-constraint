@@ -1,7 +1,6 @@
 # -*- mode: snippet -*-
 #name : sf2-validator-constraint
 #key : sf2-validator-constraint
-#contributor : ELSA
 # --
 <?php
 
