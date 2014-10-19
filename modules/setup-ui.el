@@ -11,8 +11,8 @@
   :init (progn (setq show-paren-style 'mixed)
                (show-paren-mode 1)))
 
-;; (use-package hl-line
-;;   :init (global-hl-line-mode 1))
+(use-package hl-line
+  :init (global-hl-line-mode 1))
 
 ;; (blink-cursor-mode -1)
 
