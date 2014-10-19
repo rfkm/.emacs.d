@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+#name : sf2-column-boolean
+#key : sf2-column-boolean
+# --
+/**
+ * $0${1:field}
+ * @ORM\Column(type="boolean")
+ */
+protected $${1:$(s-lower-camel-case (s-join "_" (s-split " " yas-text)))} = false;
