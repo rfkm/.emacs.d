@@ -17,4 +17,16 @@ use Symfony\Component\Validator\Constraint;
 class `(my/guess-php-class-name)` extends Constraint
 {
     public $message = ${1:'The string "%string%" contains an illegal character: it can only contain letters or numbers.'};$0
+
+/*
+    public function getTargets()
+    {
+        return self::CLASS_CONSTRAINT;
+    }
+
+    public function validatedBy()
+    {
+        return 'my_validator_service';
+    }
+*/    
 }
