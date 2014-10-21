@@ -31,6 +31,7 @@ You need to restart Emacs after changing the value."
 (setq my/modules (list
                   "custom"
                   "setup-basic"
+                  "setup-projectile"
                   "setup-key-bindings"
                   ;; "setup-session"
                   "setup-ui"
