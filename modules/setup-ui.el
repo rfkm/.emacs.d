@@ -14,7 +14,7 @@
 (use-package hl-line
   :init (global-hl-line-mode 1))
 
-;; (blink-cursor-mode -1)
+(blink-cursor-mode -1)
 
 ;; Display time mode
 (setq display-time-string-forms '((format
