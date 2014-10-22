@@ -95,7 +95,7 @@
                            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
 
             (setq org-latex-default-class "jsarticle")
-            (setq org-latex-packages-alist `(("" ,(expand-file-name (locate-user-emacs-file "misc/latex/common")))))
+            (setq org-latex-packages-alist `(("" ,(expand-file-name (locate-user-emacs-file "misc/latex/common")) nil)))
 
             (setq org-latex-listings 'minted)
             (setq org-latex-minted-options '(("mathescape" "")
