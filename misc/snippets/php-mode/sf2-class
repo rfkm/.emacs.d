@@ -1,0 +1,19 @@
+# -*- mode: snippet -*-
+#name : sf2-class
+#key : sf2-class
+# --
+<?php
+
+namespace `(my/guess-php-namespace)`;
+
+/**
+ * `(my/guess-php-class-name)`
+ *
+ * @author `(my/guess-user-name-from-git)` <`(my/guess-user-email-from-git)`>
+ */
+class `(my/guess-php-class-name)`
+{
+    public function __construct()
+    {
+    }
+}
