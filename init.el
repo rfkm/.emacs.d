@@ -64,7 +64,9 @@ You need to restart Emacs after changing the value."
                   ;; "setup-visual-basic-mode"
                   "setup-ace-jump-mode"
                   "setup-experiment"
-                  "utils"))
+                  "utils"
+                  "setup-private-settings"
+                  ))
 
 (my/load-modules)
 

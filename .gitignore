@@ -15,3 +15,4 @@ tramp
 /url/
 /async-bytecomp.log
 /.emacs.desktop
+/modules/setup-private-settings.el

@@ -17,7 +17,7 @@
                           ((member el modules) el)
                           ((member module modules) module)
                           (t
-                           (warn "Unknown module: %s" module)
+                           (message "Unknown module: %s" module)
                            nil))))
                 (delq nil my/modules))))
 
