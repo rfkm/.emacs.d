@@ -35,6 +35,7 @@ You need to restart Emacs after changing the value."
                   ;; "setup-session"
                   "setup-ui"
                   (when mac? "setup-osx")
+                  "setup-projectile"
                   "setup-migemo"
                   "setup-helm"
                   "setup-tags"
