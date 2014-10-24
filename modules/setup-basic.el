@@ -158,6 +158,10 @@
 ;; smart pairing for all
 (electric-pair-mode 1)
 
+(use-package abbrev
+  :config (progn
+            (setq abbrev-file-name (locate-user-emacs-file ".abbrev_defs"))))
+
 ;; Hippie expand
 (setq hippie-expand-try-functions-list '(try-expand-dabbrev
                                          try-expand-dabbrev-all-buffers
