@@ -15,6 +15,7 @@
                     #'ace-jump-word-mode
                   #'ace-jump-char-mode) ,c))))
 
+;; H-<char> -> Jump to <char>
 (loop for c from ?! to ?~ do (my/add-keys-to-ace-jump-mode "H-" c))
 (loop for c from ?! to ?~ do (my/add-keys-to-ace-jump-mode "H-M-" c 'word))
 
