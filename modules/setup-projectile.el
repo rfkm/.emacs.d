@@ -7,6 +7,12 @@
 (use-package projectile
   :bind (("C-c p p" . projectile-switch-project)
          ("C-x g" . projectile-find-file))
+  :init
+  (progn
+    (when mac?
+      (autoload #'my/projectile-sourcetree "projectile" nil t)
+      (bind-keys
+       ("C-c p G" . my/projectile-sourcetree))))
   :config
   (progn
     (setq projectile-completion-system 'helm)
@@ -21,9 +27,6 @@
         "Open the current project with SouceTree."
         (interactive)
         (projectile-with-default-dir (projectile-project-root)
-          (call-process "open" nil nil nil "." "-a" "SourceTree")))
-
-      (bind-keys :map projectile-command-map
-                 ("G" . my/projectile-sourcetree)))))
+          (call-process "open" nil nil nil "." "-a" "SourceTree"))))))
 
 ;;; setup-projectile.el ends here
