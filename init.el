@@ -66,8 +66,7 @@ You need to restart Emacs after changing the value."
                   "setup-ace-jump-mode"
                   "setup-experiment"
                   "utils"
-                  "setup-private-settings"
-                  ))
+                  "setup-private-settings"))
 
 (my/load-modules)
 
