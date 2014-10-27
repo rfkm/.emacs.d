@@ -77,6 +77,8 @@
 (depends-on "yari")
 (depends-on "inf-ruby")
 (depends-on "ruby-tools")
+(depends-on "slim-mode")
+(depends-on "stylus-mode")
 
 (depends-on "org-plus-contrib")
 
