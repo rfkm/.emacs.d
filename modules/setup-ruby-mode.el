@@ -34,12 +34,16 @@
                         (bind-keys :map ruby-tools-mode-map
                                    ("C-;" . nil))))
 
+
             (defun my/ruby-mode-hook ()
               (add-hook 'before-save-hook 'my/cleanup-buffer nil t)
               (ruby-block-mode +1)
               (inf-ruby-minor-mode +1)
-              (ruby-tools-mode +1))
+              (ruby-tools-mode +1)
+              (helm-gtags-mode +1)
+              (robe-mode +1))
 
+            ;; (add-hook 'robe-mode-hook 'ac-robe-setup)
             (add-hook 'ruby-mode-hook 'my/ruby-mode-hook)))
 
 ;;; setup-ruby-mode.el ends here

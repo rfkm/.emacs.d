@@ -77,6 +77,7 @@
 (depends-on "yari")
 (depends-on "inf-ruby")
 (depends-on "ruby-tools")
+(depends-on "robe")
 (depends-on "slim-mode")
 (depends-on "stylus-mode")
 
