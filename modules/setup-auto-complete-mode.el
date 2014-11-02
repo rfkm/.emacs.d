@@ -22,13 +22,12 @@
             (add-hook 'auto-complete-mode-hook 'ac-common-setup)
             (global-auto-complete-mode t)
 
-            (setq ac-auto-start t)
+            (setq ac-auto-start nil)
             (setq ac-auto-show-menu 0.1)
 
             (bind-keys :map ac-completing-map
-                       ("C-s" . ac-isearch)
+                       ("C-s" . ac-isearch))
 
-                       )
             (bind-keys :map ac-mode-map
                        ("C-'" . auto-complete))
 
