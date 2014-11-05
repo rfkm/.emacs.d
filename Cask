@@ -82,6 +82,7 @@
 (depends-on "stylus-mode")
 
 (depends-on "org-plus-contrib")
+(depends-on "editorconfig")
 
 ;; Themes
 (depends-on "color-theme-sanityinc-tomorrow")
