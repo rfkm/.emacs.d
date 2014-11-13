@@ -7,7 +7,7 @@
                               (file-name-directory load-file-name))))
 
 ;; Cask
-(let* ((brewed-suffix "echo $(brew --prefix)/share/emacs/site-lisp/cask.el")
+(let* ((brewed-suffix "echo $(/usr/local/bin/brew --prefix)/share/emacs/site-lisp/cask.el") ; nonsense
        (brewed-path (and (executable-find "/usr/local/bin/brew") ; FIXME: Should use more flexible way to find brew's path
                          (replace-regexp-in-string (rx (* (any " \t\n")) eos)
                                                    ""
