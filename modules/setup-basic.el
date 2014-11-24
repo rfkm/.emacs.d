@@ -31,12 +31,8 @@
 ;; auto save
 (setq auto-save-list-file-prefix (concat user-emacs-directory ".auto-save-list/.saves-"))
 
-;; Language
-(set-language-environment 'Japanese)
+;; Default coding system
 (prefer-coding-system 'utf-8-unix)
-(set-default-coding-systems 'utf-8-unix)
-(set-buffer-file-coding-system 'utf-8-unix)
-(setq buffer-file-coding-system 'utf-8-unix)
 
 ;; Performance
 (setq gc-cons-threshold 20000000)
