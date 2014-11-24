@@ -92,5 +92,7 @@
 (depends-on "spacegray-theme")
 (depends-on "zenburn-theme")
 
+(depends-on "gist")
+
 ;; Experimental
 (depends-on "e2wm")
