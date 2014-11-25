@@ -1,7 +1,7 @@
 * My emacs settings
 
 ** Requirements
-   - Emacs 24.3 or higher
+   - Emacs 24.4 or higher
    - [[https://github.com/cask/cask][Cask]]
 
 ** Installation
