@@ -14,7 +14,7 @@
                                                    (shell-command-to-string brewed-suffix))))
        (pred (lambda (x) (and (file-exists-p x) x)))
        (cask-path (car (delq nil (mapcar pred `("~/.cask/cask.el"
-                                                ,brewed-path))))))
+                                                ,(or brewed-path "")))))))
   (if cask-path
       (progn (require 'cask cask-path)
              (cask-initialize))
