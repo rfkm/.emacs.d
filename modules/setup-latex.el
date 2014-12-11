@@ -4,6 +4,7 @@
 
 ;;; Code:
 
+;; TODO: platform agnostic settings
 (use-package yatex
   :mode (("\\.tex$" . yatex-mode)
          ("\\.ltx$" . yatex-mode)
