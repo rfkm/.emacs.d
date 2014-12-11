@@ -96,3 +96,4 @@
 
 ;; Experimental
 (depends-on "e2wm")
+(depends-on "yatex" :hg "http://www.yatex.org/hgrepos/yatex")

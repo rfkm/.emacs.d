@@ -1,5 +1,6 @@
 install cask
 install gpg
+install hg
 install coreutils
 install cmigemo
 install ag
