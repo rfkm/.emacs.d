@@ -40,7 +40,7 @@
                 (add-hook 'cider-mode-hook 'my/cider-mode-hook)
                 (add-hook 'cider-repl-mode-hook 'my/cider-mode-hook)
 
-                (defun cider-namespace-refresh ()
+                (defun my/cider-namespace-refresh ()
                   (interactive)
                   (cider-interactive-eval
                    "(require 'clojure.tools.namespace.repl)(clojure.tools.namespace.repl/refresh)"))
