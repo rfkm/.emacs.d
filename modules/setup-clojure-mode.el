@@ -45,6 +45,11 @@
                   (cider-interactive-eval
                    "(require 'clojure.tools.namespace.repl)(clojure.tools.namespace.repl/refresh)"))
 
+                (defun my/cider-reload-project ()
+                  (interactive)
+                  (cider-interactive-eval
+                   "(require 'alembic.still)(alembic.still/load-project)"))
+
                 (when my/use-ergonomic-key-bindings
                   (bind-keys :map cider-mode-map
                              ("C-j" . nil))
