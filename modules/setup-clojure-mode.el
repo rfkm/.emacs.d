@@ -50,6 +50,11 @@
                   (cider-interactive-eval
                    "(require 'alembic.still)(alembic.still/load-project)"))
 
+                (defun my/cider-midje-run-autotest ()
+                  (interactive)
+                  (cider-interactive-eval
+                   "(require 'midje.repl)(midje.repl/autotest)"))
+
                 (when my/use-ergonomic-key-bindings
                   (bind-keys :map cider-mode-map
                              ("C-j" . nil))
