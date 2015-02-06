@@ -10,6 +10,12 @@
 (setq ns-alternate-modifier (quote super))
 (setq ns-right-alternate-modifier (quote alt))
 
+;; for emacs-mac-port
+(setq mac-command-modifier (quote meta))
+(setq mac-right-command-modifier (quote hyper))
+(setq mac-option-modifier (quote super))
+(setq mac-right-alternate-modifier (quote alt))
+
 (setq ns-use-srgb-colorspace nil)
 
 ;; Don't open new frame
@@ -18,16 +24,24 @@
 ;; Don't use native fullscreen
 (setq ns-use-native-fullscreen nil)
 
+(when (eq window-system 'mac)
+  (defun mac-toggle-frame-fullscreen ()
+    (interactive)
+    (let* ((cur (frame-parameter (selected-frame) 'fullscreen))
+           (new-param (if (eq cur 'fullboth) nil 'fullboth)))
+      (set-frame-parameter (selected-frame) 'fullscreen new-param))))
+
 ;; I don't know why but, if you call fullscreen function immediately,
 ;; `ns-use-native-fullscreen' may be ignored.
 (run-at-time "1.5 sec" nil (lambda ()
-                             (--when-let (-first #'fboundp '(toggle-frame-fullscreen
+                             (--when-let (-first #'fboundp '(mac-toggle-frame-fullscreen
+                                                             toggle-frame-fullscreen
                                                              ns-toggle-fullscreen))
                                (funcall it))))
 
-(bind-key "M-<f10>" (if (fboundp 'toggle-frame-fullscreen)
-                        'toggle-frame-fullscreen
-                      'ns-toggle-fullscreen))
+(bind-key "M-<f10>" (-first #'fboundp '(mac-toggle-frame-fullscreen
+                                        toggle-frame-fullscreen
+                                        ns-toggle-fullscreen)))
 
 ;; Use GNU's ls
 (when (executable-find "gls")
