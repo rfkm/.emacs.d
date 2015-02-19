@@ -93,6 +93,13 @@
                            ("\\section{%s}" . "\\section*{%s}")
                            ("\\subsection{%s}" . "\\subsection*{%s}")
                            ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))
+            (add-to-list 'org-latex-classes
+                         '("jsarticle2" "\\documentclass[twocolumn,10pt]{jsarticle}"
+                           ("\\section{%s}" . "\\section*{%s}")
+                           ("\\subsection{%s}" . "\\subsection*{%s}")
+                           ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                           ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                           ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
             (setq org-latex-default-class "jsarticle")
             (setq org-latex-packages-alist `(("" ,(expand-file-name (locate-user-emacs-file "misc/latex/common")) nil)))
