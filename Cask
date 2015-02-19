@@ -80,6 +80,7 @@
 (depends-on "robe")
 (depends-on "slim-mode")
 (depends-on "stylus-mode")
+(depends-on "jade-mode")
 
 (depends-on "org-plus-contrib")
 (depends-on "editorconfig")
