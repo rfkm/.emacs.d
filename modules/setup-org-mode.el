@@ -19,6 +19,12 @@
     (setq org-imenu-depth 3)
     (setq org-use-sub-superscripts '{})
 
+    (setq org-capture-templates
+          '(("t" "Task" entry (file+headline (expand-file-name "~/Dropbox/org/task.org") "Inbox")
+             "** TODO %?\n    %i\n    %a\n    %T")
+            ("n" "note" entry (file (expand-file-name "~/Dropbox/org/notes.org"))
+             "* %?\n    %i\n    %a\n    %T")))
+
     (bind-keys
      ("C-c l" . org-store-link)
      ("C-c a" . org-agenda)
