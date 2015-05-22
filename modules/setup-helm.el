@@ -34,4 +34,8 @@
 
             (helm-descbinds-mode 1)))
 
+(use-package helm-ag
+  :config (progn
+            (setq helm-ag-insert-at-point 'symbol)))
+
 ;;; setup-helm.el ends here
