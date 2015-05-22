@@ -183,7 +183,8 @@
 
 ;; anzu
 (use-package anzu
-  :idle (global-anzu-mode 1))
+  :defer 2
+  :config (global-anzu-mode 1))
 
 ;; Flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
@@ -220,24 +221,16 @@
 ;; undo-tree
 (use-package undo-tree
   :bind ("C-M-/" . undo-tree-redo)
-  :idle (progn
-          (setq-default undo-tree-mode-lighter nil)
-          (setq undo-limit 600000)
-          (setq undo-strong-limit 900000)
-          (global-undo-tree-mode 1)))
+  :config (progn
+            (setq-default undo-tree-mode-lighter nil)
+            (setq undo-limit 600000)
+            (setq undo-strong-limit 900000)
+            (global-undo-tree-mode 1)))
 
 ;; popwin
 (use-package popwin
-  :init (progn
-          (popwin-mode 1)))
-
-;; helm-ag
-(use-package helm-ag
-  :init (progn
-          (defun my/projectile-helm-ag ()
-            (interactive)
-            (helm-ag (projectile-project-root)))
-          (bind-key "C-x G" 'my/projectile-helm-ag)))
+  :config (progn
+            (popwin-mode 1)))
 
 ;; quickrun -- Execute editing buffer
 (use-package quickrun
