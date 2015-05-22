@@ -6,7 +6,7 @@
 
 ;; Clojure
 (use-package clojure-mode
-  :defer t
+  :mode "\\.boot\\'"
   :config
   (progn
     (use-package clojure-mode-extra-font-locking)
