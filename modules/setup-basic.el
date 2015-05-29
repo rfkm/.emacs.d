@@ -13,6 +13,7 @@
 
 ;; Write backup files to own directory
 (setq backup-directory-alist `(("." . ,(locate-user-emacs-file ".backups"))))
+(setq auto-save-file-name-transforms `((".*" ,(locate-user-emacs-file ".backups") t)))
 (setq vc-make-backup-files t)
 
 ;; Default major mode
