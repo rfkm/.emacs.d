@@ -8,6 +8,7 @@
 
 (use-package yasnippet
   :defer 2
+  :diminish yas-minor-mode
   :config (progn
             (setq yas-snippet-dirs (list (expand-file-name (locate-user-emacs-file "misc/snippets"))
                                          yas-installed-snippets-dir))

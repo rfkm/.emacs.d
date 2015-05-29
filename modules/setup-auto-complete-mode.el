@@ -5,6 +5,7 @@
 ;;; Code:
 
 (use-package auto-complete
+  :diminish auto-complete-mode
   :config (progn
             ;; (setq ac-dictionary-directories (locate-user-emacs-file "ac-dict"))
             (require 'auto-complete-config)

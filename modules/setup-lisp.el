@@ -7,6 +7,7 @@
 ;; paredit
 (use-package paredit
   :defer t
+  :diminish paredit-mode
   :config (progn
             (when my/use-ergonomic-key-bindings
               (bind-keys :map paredit-mode-map

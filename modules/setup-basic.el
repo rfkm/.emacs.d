@@ -125,6 +125,7 @@
 
 ;; Easily navigate sillycased words
 (global-subword-mode 1)
+(diminish 'subword-mode)
 
 ;; No lock files
 (setq create-lockfiles nil)
@@ -171,8 +172,12 @@
                                          try-complete-lisp-symbol))
 
 ;; whitespace
-(setq whitespace-line-column 80)
-(setq whitespace-style '(face tabs empty trailing))
+(use-package whitespace
+  :diminish global-whitespace-mode
+  :config (progn
+            (setq whitespace-line-column 80)
+            (setq whitespace-style '(face tabs empty trailing))))
+
 
 (global-whitespace-mode +1)
 ;; (add-hook 'before-save-hook 'whitespace-cleanup nil t)
@@ -184,6 +189,7 @@
 ;; anzu
 (use-package anzu
   :defer 2
+  :diminish anzu-mode
   :config (global-anzu-mode 1))
 
 ;; Flycheck

@@ -16,6 +16,7 @@
     (use-package midje-mode)
     (use-package clj-refactor
       :config (cljr-add-keybindings-with-prefix "C-c j"))
+      :diminish clj-refactor-mode
     (use-package cider
       :config (progn
                 (setq nrepl-hide-special-buffers t)
