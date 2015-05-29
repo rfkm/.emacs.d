@@ -26,7 +26,6 @@
 (depends-on "helm-projectile")
 (depends-on "s")
 (depends-on "smartparens")
-(depends-on "smooth-scrolling")
 (depends-on "use-package")
 (depends-on "web-mode")
 (depends-on "yasnippet")
