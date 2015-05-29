@@ -58,7 +58,6 @@
 (depends-on "align-cljlet")
 
 (depends-on "undo-tree")
-(depends-on "popwin")
 
 (depends-on "powerline")
 
