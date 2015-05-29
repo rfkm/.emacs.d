@@ -15,8 +15,11 @@
                        ("C-c j a l" . align-cljlet)))
     (use-package midje-mode)
     (use-package clj-refactor
-      :config (cljr-add-keybindings-with-prefix "C-c j"))
       :diminish clj-refactor-mode
+      :config (progn
+                (cljr-add-keybindings-with-prefix "C-c j")
+                (setq cljr-eagerly-build-asts-on-startup nil)
+                (setq cljr-populate-artifact-cache-on-startup nil)))
     (use-package cider
       :config (progn
                 (setq nrepl-hide-special-buffers t)
