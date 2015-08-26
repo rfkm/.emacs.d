@@ -6,7 +6,7 @@
 
 (use-package magit
   :bind (("C-x v d" . magit-status)
-         ("C-x v L" . magit-key-mode-popup-logging))
+         ("C-x v l" . magit-log-popup))
   :init (progn
           (setq magit-last-seen-setup-instructions "1.4.0"))
   :config (progn
