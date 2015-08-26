@@ -14,10 +14,10 @@
 (depends-on "idle-highlight-mode")
 (depends-on "magit")
 (depends-on "git-messenger")
-(depends-on "git-commit-mode")
-(depends-on "git-rebase-mode")
+(depends-on "gitattributes-mode")
 (depends-on "gitconfig-mode")
 (depends-on "gitignore-mode")
+(depends-on "git-gutter")
 (depends-on "multiple-cursors")
 (depends-on "pallet")
 (depends-on "popwin")
@@ -50,6 +50,8 @@
 (depends-on "ace-jump-mode")
 (depends-on "migemo")
 (depends-on "quickrun")
+(depends-on "elscreen")
+(depends-on "olivetti")
 
 (depends-on "clojure-mode")
 (depends-on "clojure-mode-extra-font-locking")
@@ -85,7 +87,7 @@
 
 ;; Themes
 (depends-on "color-theme-sanityinc-tomorrow")
-(depends-on "gruvbox-theme")
+(depends-on "gruvbox-theme" :git "https://github.com/rkworks/emacs-theme-gruvbox.git")
 (depends-on "monokai-theme")
 (depends-on "solarized-theme")
 (depends-on "spacegray-theme")
@@ -95,4 +97,4 @@
 
 ;; Experimental
 (depends-on "e2wm")
-(depends-on "yatex" :hg "http://www.yatex.org/hgrepos/yatex")
+(depends-on "yatex")

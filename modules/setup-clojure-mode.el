@@ -22,7 +22,7 @@
                 (setq cljr-populate-artifact-cache-on-startup nil)))
     (use-package cider
       :config (progn
-                (setq nrepl-hide-special-buffers t)
+                (setq nrepl-hide-special-buffers nil)
                 (setq cider-repl-history-file (locate-user-emacs-file ".nrepl-history"))
 
                 (use-package cider-eldoc)
@@ -58,6 +58,10 @@
                   (interactive)
                   (cider-interactive-eval
                    "(require 'midje.repl)(midje.repl/autotest)"))
+
+                (defun my/cider-test-clear-last-results ()
+                  (interactive)
+                  (setq cider-test-last-results '(dict)))
 
                 (when my/use-ergonomic-key-bindings
                   (bind-keys :map cider-mode-map

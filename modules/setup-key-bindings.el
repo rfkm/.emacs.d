@@ -35,7 +35,7 @@
   (bind-keys
    ("C-l" . forward-char)
    ("C-j" . backward-char)
-   ("A-i" . previous-line)      ; C-i
+   ("A-i" . previous-line)              ; C-i
    ("C-k" . next-line)
    ("C-M-l" . forward-word)
    ("C-M-j" . backward-word)
@@ -60,6 +60,17 @@
   (bind-keys
    :map isearch-mode-map
    ("C-u" . isearch-delete-char))
+
+  (bind-keys
+   :map Buffer-menu-mode-map
+   ("C-k" . nil))
+
+  (bind-keys
+   :map widget-field-keymap
+   ("C-k" . nil)
+   ("C-d" . widget-kill-line)
+   ("C-e" . nil)
+   ("C-;" . widget-end-of-line))
 
   ;; minibuffer
   (dolist (map (list minibuffer-local-map

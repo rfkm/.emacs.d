@@ -58,7 +58,7 @@
   ;; Disable line number updates while auto-comple window is
   ;; displayed.
   '(ac-linum-workaround))
-(global-linum-mode)
+(bind-keys ("M-L" . linum-mode))
 
 ;; display time on mode line
 (display-time-mode 1)
@@ -177,7 +177,7 @@
   :diminish global-whitespace-mode
   :config (progn
             (setq whitespace-line-column 80)
-            (setq whitespace-style '(face tabs empty trailing))))
+            (setq whitespace-style '(face tabs empty trailing tab-mark))))
 
 
 (global-whitespace-mode +1)
@@ -243,5 +243,16 @@
 (use-package quickrun
   :bind (("s-q" . quickrun)
          ("s-Q" . quickrun-shell)))
+
+;; elscreen
+(use-package elscreen
+  :config (elscreen-start))
+
+;; olivetti
+(use-package olivetti
+  :diminish olivetti-mode
+  :bind (("s-c" . olivetti-mode))
+  :config (progn
+            (setq olivetti-body-width 100)))
 
 ;;; setup-basic.el ends here

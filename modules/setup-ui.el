@@ -25,14 +25,19 @@
 
 (when window-system
   ;; Theme
-  (load-theme 'solarized-light)
+  (load-theme 'gruvbox)
+
+  (use-package powerline
+    :config (progn
+              (setq powerline-default-separator 'contour)
+              (powerline-default-theme)))
 
   ;; Font settings
   ;;
   ;;    2 byte char width = 1 byte char width * 2
   ;;    あいうえおかきくけこさしすせそ
   ;;    ''''''''''''''''''''''''''''''
-  (let* ((size 14)                      ; [9/10/12/14/15/17/19/20/...]
+  (let* ((size 16)                      ; [9/10/12/14/15/17/19/20/...]
          (asciifont "Ricty")            ; ASCII fonts
          (jpfont "Ricty")               ; Japanese fonts
          (h (* size 10))
