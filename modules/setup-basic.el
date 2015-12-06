@@ -152,6 +152,10 @@
 
 ;; spell checking
 (setq-default ispell-program-name "aspell")
+(use-package flyspell-mode
+  :config
+  (bind-keys :map flyspell-mode-map
+             ("C-;" . nil)))
 
 ;; smart pairing for all
 (electric-pair-mode 1)

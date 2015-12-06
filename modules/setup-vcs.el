@@ -10,8 +10,8 @@
   :init (progn
           (setq magit-last-seen-setup-instructions "1.4.0"))
   :config (progn
-            (setq magit-status-buffer-switch-function 'switch-to-buffer)
-            (setq magit-save-some-buffers nil)))
+            (setq magit-status-buffer-switch-function 'pop-to-buffer)
+            (setq magit-save-repository-buffers nil)))
 
 (use-package git-messenger
   :bind ("C-x v p" . git-messenger:popup-message)

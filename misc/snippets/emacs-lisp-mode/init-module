@@ -9,7 +9,7 @@
 ;;; Code:
 
 (use-package foo-mode
-  :init (progn
-           $0))
+  :config
+  $0)
 
 ;;; `(f-filename (buffer-file-name))` ends here

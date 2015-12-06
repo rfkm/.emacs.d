@@ -18,7 +18,8 @@
                          ("C-u"   . paredit-backward-delete)
                          ("C-M-u" . paredit-backward-kill-word)
                          ("C-j"   . backward-char)
-                         ("C-M-u" . backward-kill-word)))
+                         ("C-M-u" . backward-kill-word)
+                         ("C-M-p" . paredit-backward-up)))
 
             ;; Enable `paredit-mode' in the minibuffer, during `eval-expression'.
             (defun conditionally-enable-paredit-mode ()

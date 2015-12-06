@@ -7,7 +7,8 @@
 (use-package projectile
   :bind (("C-c p p" . projectile-switch-project)
          ("C-x g" . projectile-find-file)
-         ("C-x G" . my/projectile-helm-ag))
+         ("C-x G" . my/projectile-helm-ag)
+         ("C-x B" . projectile-switch-to-buffer))
   :init
   (progn
     (when mac?

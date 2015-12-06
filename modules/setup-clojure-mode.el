@@ -9,11 +9,15 @@
   :mode "\\.boot\\'"
   :config
   (progn
+    ;; custom indentations
+    (define-clojure-indent
+      (let-test-data 1))
+
     (use-package clojure-mode-extra-font-locking)
     (use-package align-cljlet
       :init (bind-keys :map clojure-mode-map
                        ("C-c j a l" . align-cljlet)))
-    (use-package midje-mode)
+    ;; (use-package midje-mode)
     (use-package clj-refactor
       :diminish clj-refactor-mode
       :config (progn
@@ -63,11 +67,32 @@
                   (interactive)
                   (setq cider-test-last-results '(dict)))
 
+                ;; Hack for https://github.com/clojure-emacs/cider/issues/1452
+                (defun my/cider-freeze-repl-overlay (&rest _)
+                  (dolist (ov (overlays-at (1- (cider-repl--end-of-line-before-input-start))))
+                    (when (member #'ansi-color-freeze-overlay (overlay-get ov 'modification-hooks)) ; ensure ov is crated by ansi-color
+                      (unless (member #'ansi-color-freeze-overlay (overlay-get ov 'insert-behind-hooks))
+                        (push #'ansi-color-freeze-overlay (overlay-get ov 'insert-behind-hooks))))))
+
+                (advice-add 'cider-repl--emit-interactive-output :after #'my/cider-freeze-repl-overlay)
+
+                (defun my/zou-go ()
+                  (interactive)
+                  (if current-prefix-arg
+                      (progn
+                        (save-some-buffers)
+                        (cider-interactive-eval
+                         "(zou.framework.repl/reset)"))
+                    (cider-interactive-eval
+                     "(zou.framework.repl/go)")))
+
                 (when my/use-ergonomic-key-bindings
                   (bind-keys :map cider-mode-map
-                             ("C-j" . nil))
+                             ("C-j" . nil)
+                             ("s-;" . my/zou-go))
                   (bind-keys :map cider-repl-mode-map
-                             ("C-j" . nil)))))
+                             ("C-j" . nil)
+                             ("s-;" . my/zou-go)))))
 
     (defun my/clojure-mode-hook ()
       (add-hook 'before-save-hook 'my/cleanup-buffer nil t)

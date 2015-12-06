@@ -45,7 +45,6 @@
 (depends-on "paredit")
 (depends-on "rainbow-delimiters")
 (depends-on "clj-refactor")
-(depends-on "midje-mode")
 (depends-on "auto-complete")
 (depends-on "ace-jump-mode")
 (depends-on "migemo")
@@ -81,8 +80,10 @@
 (depends-on "slim-mode")
 (depends-on "stylus-mode")
 (depends-on "jade-mode")
+(depends-on "adoc-mode")
 
 (depends-on "org-plus-contrib")
+(depends-on "ox-asciidoc")
 (depends-on "editorconfig")
 
 ;; Themes
@@ -92,6 +93,7 @@
 (depends-on "solarized-theme")
 (depends-on "spacegray-theme")
 (depends-on "zenburn-theme")
+(depends-on "rainbow-mode")
 
 (depends-on "gist")
 
