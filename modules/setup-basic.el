@@ -256,7 +256,15 @@
 (use-package olivetti
   :diminish olivetti-mode
   :bind (("s-c" . olivetti-mode))
-  :config (progn
-            (setq olivetti-body-width 100)))
+  :config
+  (setq-default olivetti-body-width 100)
+  (bind-keys :map olivetti-mode-map
+             ("C-s-0" . olivetti-expand)
+             ("C-s-9" . olivetti-shrink)))
+
+(use-package auto-dim-other-buffers
+  :diminish auto-dim-other-buffers-mode
+  :config
+  (auto-dim-other-buffers-mode +1))
 
 ;;; setup-basic.el ends here
