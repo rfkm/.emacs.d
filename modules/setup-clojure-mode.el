@@ -67,15 +67,6 @@
                   (interactive)
                   (setq cider-test-last-results '(dict)))
 
-                ;; Hack for https://github.com/clojure-emacs/cider/issues/1452
-                (defun my/cider-freeze-repl-overlay (&rest _)
-                  (dolist (ov (overlays-at (1- (cider-repl--end-of-line-before-input-start))))
-                    (when (member #'ansi-color-freeze-overlay (overlay-get ov 'modification-hooks)) ; ensure ov is crated by ansi-color
-                      (unless (member #'ansi-color-freeze-overlay (overlay-get ov 'insert-behind-hooks))
-                        (push #'ansi-color-freeze-overlay (overlay-get ov 'insert-behind-hooks))))))
-
-                (advice-add 'cider-repl--emit-interactive-output :after #'my/cider-freeze-repl-overlay)
-
                 (defun my/zou-go ()
                   (interactive)
                   (if current-prefix-arg
