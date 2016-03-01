@@ -1,11 +1,10 @@
-install cask
-install gpg
-install hg
-install coreutils
-install cmigemo
-install ag
-install editorconfig
-install aspell --with-lang-en
-install global --with-exuberant-ctags --with-pygments
-install caskroom/cask/brew-cask
-cask install mactex
+brew 'cask'
+brew 'gpg'
+brew 'hg'
+brew 'coreutils'
+brew 'cmigemo'
+brew 'ag'
+brew 'editorconfig'
+brew 'aspell', args: ['with-lang-en']
+brew 'global', args: ['with-exuberant-ctags', 'with-pygments']
+cask 'mactex'
