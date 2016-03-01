@@ -7,11 +7,15 @@
 (use-package magit
   :bind (("C-x v d" . magit-status)
          ("C-x v l" . magit-log-popup))
-  :init (progn
-          (setq magit-last-seen-setup-instructions "1.4.0"))
-  :config (progn
-            (setq magit-status-buffer-switch-function 'pop-to-buffer)
-            (setq magit-save-repository-buffers nil)))
+  :init
+  (setq magit-last-seen-setup-instructions "1.4.0")
+  :config
+  (setq magit-status-buffer-switch-function 'pop-to-buffer)
+  (setq magit-save-repository-buffers nil)
+  (setq magit-completing-read-function #'magit-ido-completing-read)
+  (when my/use-ergonomic-key-bindings
+    (unbind-key "C-j" magit-file-section-map)
+    (unbind-key "C-j" magit-hunk-section-map)))
 
 (use-package git-messenger
   :bind ("C-x v p" . git-messenger:popup-message)
