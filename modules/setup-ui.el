@@ -33,17 +33,24 @@
               (powerline-default-theme)))
 
   ;; Font settings
+  ;;  Font width checker:
+  ;;    The both edges of two lines below should be aligned.
+  ;;    |あいうえおかきくけこさしすせそ🍺|
+  ;;    |''''''''''''''''''''''''''''''''|
   ;;
-  ;;    2 byte char width = 1 byte char width * 2
-  ;;    あいうえおかきくけこさしすせそ
-  ;;    ''''''''''''''''''''''''''''''
-  (let* ((size 16)                      ; [9/10/12/14/15/17/19/20/...]
-         (asciifont "Ricty")            ; ASCII fonts
-         (jpfont "Ricty")               ; Japanese fonts
-         (h (* size 10))
+  (let* ((size 14)
+         (asciifont "Fira Code")
+         ;; (jpfont "Ricty")
+         (jpfont "Rounded M+ 1ms")      ; my mod font
+         (emojifont "Apple Color Emoji")
          (fontspec (font-spec :family asciifont))
-         (jp-fontspec (font-spec :family jpfont)))
-    (set-face-attribute 'default nil :family asciifont :height h)
+         (jp-fontspec (font-spec :family jpfont))
+         (emoji-fontspec (font-spec :family emojifont)))
+    (set-face-attribute 'default nil :family asciifont :height (* size 10) :weight 'light)
+    (setq face-font-rescale-alist nil)
+    (add-to-list 'face-font-rescale-alist `(,(regexp-quote jpfont) . 1.2))
+    (add-to-list 'face-font-rescale-alist `(,emojifont . 0.95))
+    (set-fontset-font nil 'symbol emoji-fontspec nil)
     (set-fontset-font nil 'japanese-jisx0213.2004-1 jp-fontspec)
     (set-fontset-font nil 'japanese-jisx0213-2 jp-fontspec)
     (set-fontset-font nil 'katakana-jisx0201 jp-fontspec) ; 半角カナ
