@@ -22,9 +22,9 @@
   :diminish git-gutter-mode
   :config (progn
             (add-to-list 'git-gutter:update-commands 'linum-mode)
-            (setq git-gutter:added-sign "•")
-            (setq git-gutter:deleted-sign "•")
-            (setq git-gutter:modified-sign "•")
+            (setq git-gutter:added-sign "・")
+            (setq git-gutter:deleted-sign "・")
+            (setq git-gutter:modified-sign "・")
             (global-git-gutter-mode)))
 
 ;;; setup-vcs.el ends here
