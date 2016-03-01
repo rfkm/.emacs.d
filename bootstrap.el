@@ -15,7 +15,9 @@
                                 "~/.cask/cask.el"))))))
   (if cask-path
       (progn (require 'cask cask-path)
-             (cask-initialize))
+             (cask-initialize)
+             (require 'pallet)
+             (pallet-mode t))
     (error "Can't find cask.el")))
 
 ;; Turn off mouse interface early in startup to avoid momentary display
