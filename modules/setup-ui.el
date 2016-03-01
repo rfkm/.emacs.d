@@ -75,7 +75,9 @@
 
   (bind-keys
    ("s-<up>" . my/inc-frame-alpha)
-   ("s-<down>" . my/dec-frame-alpha)))
+   ("s-<down>" . my/dec-frame-alpha))
+
+  (add-hook 'after-init-hook 'toggle-frame-maximized))
 
 ;; CLI
 (unless window-system

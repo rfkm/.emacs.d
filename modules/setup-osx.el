@@ -31,13 +31,6 @@
            (new-param (if (eq cur 'fullboth) nil 'fullboth)))
       (set-frame-parameter (selected-frame) 'fullscreen new-param))))
 
-;; I don't know why but, if you call fullscreen function immediately,
-;; `ns-use-native-fullscreen' may be ignored.
-(run-at-time "1.5 sec" nil (lambda ()
-                             (--when-let (-first #'fboundp '(mac-toggle-frame-fullscreen
-                                                             toggle-frame-fullscreen
-                                                             ns-toggle-fullscreen))
-                               (funcall it))))
 
 (bind-key "M-<f10>" (-first #'fboundp '(mac-toggle-frame-fullscreen
                                         toggle-frame-fullscreen
