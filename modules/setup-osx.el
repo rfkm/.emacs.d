@@ -36,6 +36,13 @@
                                         toggle-frame-fullscreen
                                         ns-toggle-fullscreen)))
 
+(when (fboundp #'mac-auto-ascii-mode)
+  (mac-auto-ascii-mode +1))
+
+;;; NB: This makes your Emacs slow.
+(when (fboundp #'mac-auto-operator-composition-mode)
+  (mac-auto-operator-composition-mode +1))
+
 ;; Use GNU's ls
 (when (executable-find "gls")
   (setq insert-directory-program "gls"))
