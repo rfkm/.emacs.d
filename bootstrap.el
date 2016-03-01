@@ -7,14 +7,12 @@
                               (file-name-directory load-file-name))))
 
 ;; Cask
-(let* ((brewed-suffix "echo $(/usr/local/bin/brew --prefix)/share/emacs/site-lisp/cask.el") ; nonsense
-       (brewed-path (and (executable-find "/usr/local/bin/brew") ; FIXME: Should use more flexible way to find brew's path
-                         (replace-regexp-in-string (rx (* (any " \t\n")) eos)
-                                                   ""
-                                                   (shell-command-to-string brewed-suffix))))
-       (pred (lambda (x) (and (file-exists-p x) x)))
-       (cask-path (car (delq nil (mapcar pred `("~/.cask/cask.el"
-                                                ,(or brewed-path "")))))))
+(let ((cask-path
+       (car (delq nil (mapcar (lambda (x) (and (file-exists-p x) x))
+                              ;; Assume cask's location is one of the following:
+                              '("/usr/local/share/emacs/site-lisp/cask.el"
+                                "/usr/local/share/emacs/site-lisp/cask/cask.el"
+                                "~/.cask/cask.el"))))))
   (if cask-path
       (progn (require 'cask cask-path)
              (cask-initialize))
