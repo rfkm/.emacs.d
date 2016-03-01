@@ -36,7 +36,7 @@
 (prefer-coding-system 'utf-8-unix)
 
 ;; Performance
-(setq gc-cons-threshold 20000000)
+(setq gc-cons-threshold 50000000)
 (setq jit-lock-stealth-time 16
       jit-lock-defer-contextually t
       jit-lock-stealth-nice 0.5)
