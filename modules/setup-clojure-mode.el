@@ -11,7 +11,9 @@
   (progn
     ;; custom indentations
     (define-clojure-indent
-      (let-test-data 1))
+      (let-test-data 1)
+      (fact :defn)
+      (facts :defn))
 
     (use-package clojure-mode-extra-font-locking)
     (use-package align-cljlet
