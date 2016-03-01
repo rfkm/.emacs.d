@@ -106,4 +106,7 @@
 
                                   ))
 
+(use-package helm-glogs
+  :bind ("s-g" . helm-glogs))
+
 ;;; setup-experiment.el ends here

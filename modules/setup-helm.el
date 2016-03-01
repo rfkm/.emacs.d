@@ -7,7 +7,6 @@
 (use-package helm
   :init (require 'helm-config)
   :bind (("s-a" . helm-mini)
-         ("s-g" . helm-google-suggest)
          ("C-x b" . helm-buffers-list)
          ("C-x r b" . helm-bookmarks)
          ("M-x" . helm-M-x)
