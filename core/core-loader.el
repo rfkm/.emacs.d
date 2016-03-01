@@ -35,18 +35,19 @@
   :bind ("C-x r ." . my/helm-list-emacs-modules)
   :config (progn
             (defvar my/helm-source-emacs-modules
-              `((name . "EmacsModules")
-                (candidates . (lambda ()
-                                (with-helm-current-buffer
-                                  (let ((dirs (append (directory-files user-emacs-directory t)
-                                                      (directory-files my/modules-dir t)))
-                                        (pred (lambda (d) (string-match "^\\(?:.*\.el\\|.*[^\.]Cask\\)$" d))))
-                                    (-filter pred dirs)))))
-                (type . file)))
+              (helm-build-sync-source "EmacsModules"
+                :candidates (lambda ()
+                              (with-helm-current-buffer
+                                (let ((dirs (append (directory-files user-emacs-directory t)
+                                                    (directory-files my/modules-dir t)))
+                                      (pred (lambda (d) (string-match "^\\(?:.*\.el\\|.*[^\.]Cask\\)$" d))))
+                                  (-filter pred dirs))))
+                :action 'helm-type-file-actions
+                :fuzzy-match t))
 
             (defun my/helm-list-emacs-modules ()
               (interactive)
-              (helm-other-buffer 'my/helm-source-emacs-modules "*helm-emacs-modules*"))))
+              (helm :sources 'my/helm-source-emacs-modules))))
 
 (provide 'core-loader)
 ;;; core-loader.el ends here
