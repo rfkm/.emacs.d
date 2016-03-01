@@ -89,6 +89,11 @@
                   (my/cider-clj-eval
                    "(require 'midje.repl)(midje.repl/autotest)"))
 
+                (defun my/cider-midje-stop-autotest ()
+                  (interactive)
+                  (my/cider-clj-eval
+                   "(midje.repl/autotest :stop)"))
+
                 (defun my/cider-test-clear-last-results ()
                   (interactive)
                   (setq cider-test-last-results '(dict)))
