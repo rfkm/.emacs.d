@@ -289,4 +289,11 @@
                  ("C-k" . ido-next-match))))
 
   (add-hook 'ido-setup-hook 'my/define-ido-vetical-define-keys))
+
+(use-package highlight-symbol
+  :diminish highlight-symbol-mode
+  :config
+  (setq highlight-symbol-idle-delay 0.5)
+  (add-hook 'prog-mode-hook 'highlight-symbol-mode))
+
 ;;; setup-basic.el ends here
