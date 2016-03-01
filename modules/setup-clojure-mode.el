@@ -16,10 +16,28 @@
       (facts :defn))
 
     (use-package clojure-mode-extra-font-locking)
-    (use-package align-cljlet
-      :init (bind-keys :map clojure-mode-map
-                       ("C-c j a l" . align-cljlet)))
-    ;; (use-package midje-mode)
+
+    ;; alignment
+    ;; (setq clojure-align-forms-automatically t)
+    (defun my/clojure-reindent-defun (&optional argument)
+      (interactive "P")
+      (if (or (paredit-in-string-p)
+              (paredit-in-comment-p))
+          (lisp-fill-paragraph argument)
+        (paredit-preserving-column
+          (save-excursion
+            (let ((e (progn (end-of-defun) (point)))
+                  (b (progn (beginning-of-defun) (point))))
+              (indent-region b e))))))
+
+    (defun my/paredit-reindent-defun-advice (f &rest args)
+      (if (derived-mode-p 'clojure-mode)
+          (apply 'my/clojure-reindent-defun args)
+        (apply f args)))
+
+    (advice-add 'paredit-reindent-defun :around 'my/paredit-reindent-defun-advice)
+
+
     (use-package clj-refactor
       :diminish clj-refactor-mode
       :config (progn
