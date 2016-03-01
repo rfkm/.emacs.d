@@ -23,6 +23,7 @@
  ("s-k" . kill-this-buffer)
  ("s-u" . revert-buffer)
  ("M-/" . hippie-expand)
+ ("s-l" . goto-line)
  ("C-c d" . my/duplicate-current-line-or-region))
 
 ;; Ergonomic key bindings
@@ -55,6 +56,12 @@
 
    ("C-p" . cua-scroll-down)
    ("C-n" . cua-scroll-up))
+
+  ;; comint
+  (with-eval-after-load "comint"
+    (bind-keys
+     :map comint-mode-map
+     ("C-M-l" . forward-word)))
 
   ;; isearch-mode
   (bind-keys
