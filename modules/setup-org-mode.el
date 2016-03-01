@@ -107,6 +107,21 @@
                            ("\\paragraph{%s}" . "\\paragraph*{%s}")
                            ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
+            (setq org-latex-default-packages-alist
+                  '(("AUTO" "inputenc"  t)
+                    ("T1"   "fontenc"   t)
+                    (""     "fixltx2e"  nil)
+                    ("dvipdfmx"     "graphicx"  t)
+                    (""     "grffile"   t)
+                    (""     "longtable" nil)
+                    (""     "wrapfig"   nil)
+                    (""     "rotating"  nil)
+                    ("normalem" "ulem"  t)
+                    (""     "amsmath"   t)
+                    (""     "textcomp"  t)
+                    (""     "amssymb"   t)
+                    (""     "capt-of"   nil)
+                    (""     "hyperref"  nil)))
             (setq org-latex-default-class "jsarticle")
             (setq org-latex-packages-alist `(("" ,(expand-file-name (locate-user-emacs-file "misc/latex/common")) nil)))
 
