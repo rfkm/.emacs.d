@@ -16,3 +16,4 @@ tramp
 /async-bytecomp.log
 /.emacs.desktop
 /modules/setup-private-settings.el
+.persp-confs
