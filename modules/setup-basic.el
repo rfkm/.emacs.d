@@ -16,10 +16,6 @@
 (setq auto-save-file-name-transforms `((".*" ,(locate-user-emacs-file ".backups/") t)))
 (setq vc-make-backup-files t)
 
-;; Default major mode
-(setq major-mode 'text-mode)
-(setq initial-scratch-message ";; foooo")
-
 ;; No splash screen
 (setq inhibit-startup-message t)
 
