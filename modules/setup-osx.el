@@ -67,6 +67,10 @@
   (shell-command (concat "osascript "  (locate-user-emacs-file "misc/applescripts/chrome.scpt reload"))))
 (bind-key "s-r" 'my/chrome-reload)
 
+;; Dash integration
+(use-package dash-at-point
+  :bind (("s-d" . dash-at-point)))
+
 ;; Enable clipboard sharing on CUI Emacs
 (unless window-system
   (defvar my/prev-yanked-text nil "*previous yanked text")
