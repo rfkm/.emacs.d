@@ -8,8 +8,9 @@
       truncate-partial-width-windows nil)
 
 (use-package paren
-  :init (progn (setq show-paren-style 'mixed)
-               (show-paren-mode 1)))
+  :init
+  (setq show-paren-style 'mixed)
+  (show-paren-mode 1))
 
 (use-package hl-line
   :init (global-hl-line-mode 1))
@@ -28,9 +29,9 @@
   (load-theme 'gruvbox)
 
   (use-package powerline
-    :config (progn
-              (setq powerline-default-separator 'contour)
-              (powerline-default-theme)))
+    :config
+    (setq powerline-default-separator 'contour)
+    (powerline-default-theme))
 
   ;; Font settings
   ;;  Font width checker:

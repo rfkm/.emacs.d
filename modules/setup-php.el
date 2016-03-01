@@ -18,52 +18,52 @@
 
 (use-package php-mode
   :defer t
-  :config (progn
-            (use-package inf-php
-              :commands (inf-php)
-              :init (progn
-                      (bind-keys :map php-mode-map
-                                 ("C-c C-s" . inf-php))))
+  :config
+  (use-package inf-php
+    :commands (inf-php)
+    :init
+    (bind-keys :map php-mode-map
+               ("C-c C-s" . inf-php)))
 
-            (setq php-template-compatibility nil)
-            (setq php-mode-coding-style 'symfony2)
+  (setq php-template-compatibility nil)
+  (setq php-mode-coding-style 'symfony2)
 
-            (when my/use-ergonomic-key-bindings
-              (bind-keys :map php-mode-map
-                         ("C-d" . nil)))
+  (when my/use-ergonomic-key-bindings
+    (bind-keys :map php-mode-map
+               ("C-d" . nil)))
 
-            (defun my/php-mode-hook ()
-              (add-hook 'before-save-hook 'my/cleanup-buffer nil t)
+  (defun my/php-mode-hook ()
+    (add-hook 'before-save-hook 'my/cleanup-buffer nil t)
 
-              ;; gtags
-              (helm-gtags-mode 1)
+    ;; gtags
+    (helm-gtags-mode 1)
 
-              ;; autocomplete
-              (setq-local ac-sources '(ac-source-dictionary
-                                       ac-source-words-in-same-mode-buffers
-                                       ac-source-yasnippet
-                                       ac-source-gtags
-                                       ac-source-filename))
-              (auto-complete-mode 1))
-            (add-hook 'php-mode-hook 'my/php-mode-hook)))
+    ;; autocomplete
+    (setq-local ac-sources '(ac-source-dictionary
+                             ac-source-words-in-same-mode-buffers
+                             ac-source-yasnippet
+                             ac-source-gtags
+                             ac-source-filename))
+    (auto-complete-mode 1))
+  (add-hook 'php-mode-hook 'my/php-mode-hook))
 
 (defun my/guess-php-namespace ()
   (->> default-directory
-    f-split
-    (--drop-while (not (equal it "src")))
-    rest
-    (s-join "\\")))
+       f-split
+       (--drop-while (not (equal it "src")))
+       rest
+       (s-join "\\")))
 
 (defun my/guess-php-class-name ()
   (f-no-ext (f-filename (buffer-file-name))))
 
 (defun my/guess-sf2-service-name ()
   (->> (buffer-file-name)
-    f-split
-    (--drop-while (not (equal it "src")))
-    rest
-    (s-join "")
-    f-no-ext
-    s-snake-case))
+       f-split
+       (--drop-while (not (equal it "src")))
+       rest
+       (s-join "")
+       f-no-ext
+       s-snake-case))
 
 ;;; setup-php.el ends here

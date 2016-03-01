@@ -165,8 +165,8 @@
 (electric-pair-mode 1)
 
 (use-package abbrev
-  :config (progn
-            (setq abbrev-file-name (locate-user-emacs-file ".abbrev_defs"))))
+  :config
+  (setq abbrev-file-name (locate-user-emacs-file ".abbrev_defs")))
 
 ;; Hippie expand
 (setq hippie-expand-try-functions-list '(try-expand-dabbrev
@@ -183,9 +183,9 @@
 ;; whitespace
 (use-package whitespace
   :diminish global-whitespace-mode
-  :config (progn
-            (setq whitespace-line-column 80)
-            (setq whitespace-style '(face tabs empty trailing tab-mark))))
+  :config
+  (setq whitespace-line-column 80)
+  (setq whitespace-style '(face tabs empty trailing tab-mark)))
 
 
 (global-whitespace-mode +1)
@@ -213,8 +213,8 @@
 ;; shell-pop
 (use-package shell-pop
   :bind ("C-x C-z" . shell-pop)
-  :config (progn
-            (shell-pop--set-shell-type 'shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell))))))
+  :config
+  (shell-pop--set-shell-type 'shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell)))))
 
 ;; expand-region
 (use-package expand-region
@@ -236,16 +236,16 @@
 ;; undo-tree
 (use-package undo-tree
   :bind ("C-M-/" . undo-tree-redo)
-  :config (progn
-            (setq-default undo-tree-mode-lighter nil)
-            (setq undo-limit 600000)
-            (setq undo-strong-limit 900000)
-            (global-undo-tree-mode 1)))
+  :config
+  (setq-default undo-tree-mode-lighter nil)
+  (setq undo-limit 600000)
+  (setq undo-strong-limit 900000)
+  (global-undo-tree-mode 1))
 
 ;; popwin
 (use-package popwin
-  :config (progn
-            (popwin-mode 1)))
+  :config
+  (popwin-mode 1))
 
 ;; quickrun -- Execute editing buffer
 (use-package quickrun

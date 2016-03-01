@@ -8,24 +8,24 @@
 (use-package paredit
   :defer t
   :diminish paredit-mode
-  :config (progn
-            (when my/use-ergonomic-key-bindings
-              (bind-keys :map paredit-mode-map
-                         ("C-k"   . nil)
-                         ("C-d"   . paredit-kill)
-                         ("C-o"   . paredit-forward-delete)
-                         ("C-M-o" . paredit-forward-kill-word)
-                         ("C-u"   . paredit-backward-delete)
-                         ("C-M-u" . paredit-backward-kill-word)
-                         ("C-j"   . backward-char)
-                         ("C-M-u" . backward-kill-word)
-                         ("C-M-p" . paredit-backward-up)))
+  :config
+  (when my/use-ergonomic-key-bindings
+    (bind-keys :map paredit-mode-map
+               ("C-k"   . nil)
+               ("C-d"   . paredit-kill)
+               ("C-o"   . paredit-forward-delete)
+               ("C-M-o" . paredit-forward-kill-word)
+               ("C-u"   . paredit-backward-delete)
+               ("C-M-u" . paredit-backward-kill-word)
+               ("C-j"   . backward-char)
+               ("C-M-u" . backward-kill-word)
+               ("C-M-p" . paredit-backward-up)))
 
-            ;; Enable `paredit-mode' in the minibuffer, during `eval-expression'.
-            (defun conditionally-enable-paredit-mode ()
-              (if (eq this-command 'eval-expression)
-                  (paredit-mode 1)))
-            (add-hook 'minibuffer-setup-hook 'conditionally-enable-paredit-mode)))
+  ;; Enable `paredit-mode' in the minibuffer, during `eval-expression'.
+  (defun conditionally-enable-paredit-mode ()
+    (if (eq this-command 'eval-expression)
+        (paredit-mode 1)))
+  (add-hook 'minibuffer-setup-hook 'conditionally-enable-paredit-mode))
 
 ;; el-doc
 (use-package eldoc

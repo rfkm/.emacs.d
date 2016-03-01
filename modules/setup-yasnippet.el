@@ -9,35 +9,35 @@
 (use-package yasnippet
   :defer 2
   :diminish yas-minor-mode
-  :config (progn
-            (setq yas-snippet-dirs (list (expand-file-name (locate-user-emacs-file "misc/snippets"))
-                                         yas-installed-snippets-dir))
-            (yas-global-mode 1)
+  :config
+  (setq yas-snippet-dirs (list (expand-file-name (locate-user-emacs-file "misc/snippets"))
+                               yas-installed-snippets-dir))
+  (yas-global-mode 1)
 
-            (eval-after-load "helm"
-              '(progn (use-package helm-c-yasnippet
-                        :bind ("C-c y" . helm-yas-complete))
+  (eval-after-load "helm"
+    '(progn (use-package helm-c-yasnippet
+              :bind ("C-c y" . helm-yas-complete))
 
-                      (defun my/yas-helm-prompt (prompt choices &optional display-fn)
-                        "Use helm to select a snippet. Put this into `yas/prompt-functions.'"
-                        (interactive)
-                        (setq display-fn (or display-fn 'identity))
-                        (if (require 'helm-config)
-                            (let (tmpsource cands result rmap)
-                              (setq cands (mapcar (lambda (x) (funcall display-fn x)) choices))
-                              (setq rmap (mapcar (lambda (x) (cons (funcall display-fn x) x)) choices))
-                              (setq tmpsource
-                                    (list
-                                     (cons 'name prompt)
-                                     (cons 'candidates cands)
-                                     '(action . (("Expand" . (lambda (selection) selection))))
-                                     ))
-                              (setq result (helm-other-buffer '(tmpsource) "*helm-select-yasnippet"))
-                              (if (null result)
-                                  (signal 'quit "user quit!")
-                                (cdr (assoc result rmap))))
-                          nil))
-                      (setq yas-prompt-functions '(my/yas-helm-prompt yas-ido-prompt yas-no-prompt))))))
+            (defun my/yas-helm-prompt (prompt choices &optional display-fn)
+              "Use helm to select a snippet. Put this into `yas/prompt-functions.'"
+              (interactive)
+              (setq display-fn (or display-fn 'identity))
+              (if (require 'helm-config)
+                  (let (tmpsource cands result rmap)
+                    (setq cands (mapcar (lambda (x) (funcall display-fn x)) choices))
+                    (setq rmap (mapcar (lambda (x) (cons (funcall display-fn x) x)) choices))
+                    (setq tmpsource
+                          (list
+                           (cons 'name prompt)
+                           (cons 'candidates cands)
+                           '(action . (("Expand" . (lambda (selection) selection))))
+                           ))
+                    (setq result (helm-other-buffer '(tmpsource) "*helm-select-yasnippet"))
+                    (if (null result)
+                        (signal 'quit "user quit!")
+                      (cdr (assoc result rmap))))
+                nil))
+            (setq yas-prompt-functions '(my/yas-helm-prompt yas-ido-prompt yas-no-prompt)))))
 
 
 ;; snippet helper functions

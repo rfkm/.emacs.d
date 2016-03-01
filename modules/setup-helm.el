@@ -36,8 +36,8 @@
   (helm-descbinds-mode 1))
 
 (use-package helm-ag
-  :config (progn
-            (setq helm-ag-insert-at-point 'symbol)))
+  :config
+  (setq helm-ag-insert-at-point 'symbol))
 
 (use-package helm-swoop
   :bind (("M-i" . helm-swoop)
