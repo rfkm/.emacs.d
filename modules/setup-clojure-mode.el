@@ -120,7 +120,8 @@
       (add-hook 'before-save-hook 'my/cleanup-buffer nil t)
       (clj-refactor-mode 1)
       (paredit-mode 1)
-      (rainbow-delimiters-mode 1))
+      (rainbow-delimiters-mode 1)
+      (prettify-symbols-mode 1))
 
     (add-hook 'clojure-mode-hook 'my/clojure-mode-hook)))
 
