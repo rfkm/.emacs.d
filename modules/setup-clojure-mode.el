@@ -70,19 +70,23 @@
                 (add-hook 'cider-mode-hook 'my/cider-mode-hook)
                 (add-hook 'cider-repl-mode-hook 'my/cider-mode-hook)
 
+                (defun my/cider-clj-eval (s)
+                  (with-current-buffer (cider-current-connection "clj")
+                    (cider-interactive-eval s)))
+
                 (defun my/cider-namespace-refresh ()
                   (interactive)
-                  (cider-interactive-eval
+                  (my/cider-clj-eval
                    "(require 'clojure.tools.namespace.repl)(clojure.tools.namespace.repl/refresh)"))
 
                 (defun my/cider-reload-project ()
                   (interactive)
-                  (cider-interactive-eval
+                  (my/cider-clj-eval
                    "(require 'alembic.still)(alembic.still/load-project)"))
 
                 (defun my/cider-midje-run-autotest ()
                   (interactive)
-                  (cider-interactive-eval
+                  (my/cider-clj-eval
                    "(require 'midje.repl)(midje.repl/autotest)"))
 
                 (defun my/cider-test-clear-last-results ()
@@ -94,9 +98,9 @@
                   (if current-prefix-arg
                       (progn
                         (save-some-buffers)
-                        (cider-interactive-eval
+                        (my/cider-clj-eval
                          "(zou.framework.repl/reset)"))
-                    (cider-interactive-eval
+                    (my/cider-clj-eval
                      "(zou.framework.repl/go)")))
 
                 (when my/use-ergonomic-key-bindings
