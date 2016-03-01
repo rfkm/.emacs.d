@@ -267,4 +267,25 @@
   :config
   (auto-dim-other-buffers-mode +1))
 
+(use-package ido
+  :config
+  (ido-mode -1)
+  (setq ido-enable-flex-matching t))
+
+(use-package ido-ubiquitous-mode
+  :config
+  (ido-ubiquitous-mode +1))
+
+(use-package ido-vertical-mode
+  :config
+  (ido-vertical-mode +1)
+  (setq ido-vertical-show-count t)
+
+  (defun my/define-ido-vetical-define-keys ()
+    (when my/use-ergonomic-key-bindings
+      (bind-keys :map ido-completion-map
+                 ("A-i" . ido-prev-match) ; C-i
+                 ("C-k" . ido-next-match))))
+
+  (add-hook 'ido-setup-hook 'my/define-ido-vetical-define-keys))
 ;;; setup-basic.el ends here
