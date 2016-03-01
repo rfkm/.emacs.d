@@ -127,6 +127,14 @@
 ;; No lock files
 (setq create-lockfiles nil)
 
+(defun my/make-directory-maybe (filename &optional wildcards)
+  (unless (file-exists-p filename)
+    (let ((dir (file-name-directory filename)))
+      (unless (file-exists-p dir)
+        (make-directory dir)))))
+
+(advice-add #'find-file :before #'my/make-directory-maybe)
+
 ;; tramp
 ;; (require 'tramp)
 ;; (defadvice tramp-handle-vc-registered (around tramp-handle-vc-registered-around activate)
