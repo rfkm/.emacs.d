@@ -252,9 +252,6 @@
   :bind (("s-q" . quickrun)
          ("s-Q" . quickrun-shell)))
 
-;; elscreen
-(use-package elscreen
-  :config (elscreen-start))
 
 ;; olivetti
 (use-package olivetti
