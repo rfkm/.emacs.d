@@ -1,14 +1,14 @@
 *~
 *.elc
 \#*\#
-.cask
+.cask*
 .mc-lists.el
 .nrepl-history
 .eshell/
 elpa/
 .DS_Store
 .recentf
-.projectile-bookmarks.eld
+.projectile*
 .ac-comphist.dat
 tramp
 .bookmarks
