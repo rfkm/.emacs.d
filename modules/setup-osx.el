@@ -16,7 +16,7 @@
 (setq mac-option-modifier (quote super))
 (setq mac-right-alternate-modifier (quote alt))
 
-(setq ns-use-srgb-colorspace nil)
+(setq ns-use-srgb-colorspace t)
 
 ;; Don't open new frame
 (setq ns-pop-up-frames nil)
