@@ -36,14 +36,28 @@
 
   (advice-add 'paredit-reindent-defun :around 'my/paredit-reindent-defun-advice)
 
-
   (use-package clj-refactor
     :diminish clj-refactor-mode
     :config
     (cljr-add-keybindings-with-prefix "C-c j")
     (setq cljr-eagerly-build-asts-on-startup nil)
     (setq cljr-populate-artifact-cache-on-startup nil)
-    (setq cljr-favor-prefix-notation nil))
+    (setq cljr-favor-prefix-notation nil)
+
+    (use-package smartrep
+      :config
+      (smartrep-define-key
+          clj-refactor-map "C-c j c"
+        '(("c" . cljr-cycle-coll)))
+      (smartrep-define-key
+          clj-refactor-map "C-c j e"
+        '(("l" . cljr-expand-let)))
+
+      (smartrep-define-key
+          clj-refactor-map "C-c j t"
+        '(("f" . cljr-thread-first-all)
+          ("l" . cljr-thread-last-all)
+          ("u" . cljr-unwind)))))
 
   (use-package cider
     :config
@@ -59,7 +73,7 @@
     (defun my/cider-mode-hook ()
       (rainbow-delimiters-mode 1)
       (eldoc-mode 1)
-      (ac-flyspell-workaround) ; ?
+      (ac-flyspell-workaround)          ; ?
       (ac-cider-setup))
 
     (add-hook 'cider-mode-hook 'my/cider-mode-hook)

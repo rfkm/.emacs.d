@@ -92,6 +92,7 @@
 (depends-on "shell-pop")
 (depends-on "slim-mode")
 (depends-on "smartparens")
+(depends-on "smartrep")
 (depends-on "solarized-theme")
 (depends-on "spacegray-theme")
 (depends-on "spacemacs-theme")
