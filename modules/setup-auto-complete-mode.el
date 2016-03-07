@@ -23,7 +23,7 @@
   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
   (global-auto-complete-mode t)
 
-  (setq ac-auto-start 2)
+  (setq ac-auto-start nil)
   (setq ac-auto-show-menu 0.1)
 
   (bind-keys :map ac-completing-map
