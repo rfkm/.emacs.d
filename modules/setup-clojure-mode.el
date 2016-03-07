@@ -44,6 +44,12 @@
     (setq cljr-populate-artifact-cache-on-startup nil)
     (setq cljr-favor-prefix-notation nil)
 
+    (bind-keys :map clj-refactor-map
+               ("M-r" . (lambda ()
+                          (interactive)
+                          (let (cljr-warn-on-eval)
+                            (cljr-find-usages)))))
+
     (use-package smartrep
       :config
       (smartrep-define-key
@@ -56,8 +62,18 @@
       (smartrep-define-key
           clj-refactor-map "C-c j t"
         '(("f" . cljr-thread-first-all)
+          ("h" . cljr-thread)
           ("l" . cljr-thread-last-all)
-          ("u" . cljr-unwind)))))
+          ("w" . cljr-unwind)
+          ("a" . cljr-unwind-all)))
+
+      (smartrep-define-key
+          clj-refactor-map "C-c j u"
+        '(("f" . cljr-thread-first-all)
+          ("h" . cljr-thread)
+          ("l" . cljr-thread-last-all)
+          ("w" . cljr-unwind)
+          ("a" . cljr-unwind-all)))))
 
   (use-package cider
     :config
