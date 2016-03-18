@@ -125,6 +125,11 @@
       (interactive)
       (setq cider-test-last-results '(dict)))
 
+    (defun my/cider-toggle-load-tests ()
+      (interactive)
+      (my/cider-clj-eval
+       "(alter-var-root #'clojure.test/*load-tests* not)"))
+
     (defun my/zou-go ()
       (interactive)
       (if current-prefix-arg
