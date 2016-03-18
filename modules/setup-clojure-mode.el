@@ -16,6 +16,8 @@
 
   (use-package clojure-mode-extra-font-locking)
 
+  (use-package midje-mode)
+
   ;; alignment
   ;; (setq clojure-align-forms-automatically t)
   (defun my/clojure-reindent-defun (&optional argument)

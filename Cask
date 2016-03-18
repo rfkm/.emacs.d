@@ -64,6 +64,7 @@
 (depends-on "jump-char")
 (depends-on "magit")
 (depends-on "markdown-mode")
+(depends-on "midje-mode")
 (depends-on "migemo")
 (depends-on "monokai-theme")
 (depends-on "multiple-cursors")
